@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width initial-scale=1.0"/>
+		<title>Break HTML menu on resize</title>
+		<link href="https://fonts.googleapis.com/css?family=Dosis:500,800&amp;subset=latin-ext" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<nav id="navbar">
+			<div class="menu">
+				<ul class="desktop">
+					<li><a href="#">Menu item 1</a>
+						<ul class="submenu">
+							<li><a href="#">Submenu item 1</a></li>
+							<li><a href="#">Submenu item 2</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Menu item 2</a></li>
+					<li><a href="#">Menu item 3</a></li>
+					<li><a href="#">Menu item 4</a></li>
+					<li><a href="#">Menu item 5</a></li>
+					<li><a href="#">Menu item 6</a></li>
+					<li><a href="#">Menu item 7</a>
+						<ul class="submenu">
+							<li><a href="#">Submenu item 1</a></li>
+							<li><a href="#">Submenu item 2</a>
+								<ul class="submenu">
+									<li><a href="#">Submenu item 1</a></li>
+									<li><a href="#">Submenu item 2</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="mobile">
+					<li><a href="#">Menu item 1</a>
+						<ul class="submenu">
+							<li><a href="#">Submenu item 1</a></li>
+							<li><a href="#">Submenu item 2</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Menu item 2</a></li>
+					<li><a href="#">Menu item 3</a></li>
+					<li><a href="#">Menu item 4</a></li>
+					<li><a href="#">Menu item 5</a></li>
+					<li><a href="#">Menu item 6</a></li>
+					<li><a href="#">Menu item 7</a>
+						<ul class="submenu">
+							<li><a href="#">Submenu item 1</a></li>
+							<li><a href="#">Submenu item 2</a>
+								<ul class="submenu">
+									<li><a href="#">Submenu item 1</a></li>
+									<li><a href="#">Submenu item 2</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="openMenu">MENU</div>
+		</nav>
+		<div class="info"><h1>Resize window to mobile size and desktop size</h1></div>
+
+		<script type="text/javascript" src="js/menuBreaker.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>
