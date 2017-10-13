@@ -11,6 +11,7 @@ $(document).ready(function() {
   $('.desktop' /* Your desktop menu id or class */).menuBreaker({
     mobileMenu: '.mobile', // Your mobile menu id or class
     openCloseButton: '#openMenu', // Mobile menu open/close button
+    overlay: '.overlay', // Menu overlay
     navbarHeight: 70 // Navbar height
   });
 });
