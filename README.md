@@ -6,16 +6,30 @@ Break menu on resize (desktop to mobile)
 
 Place the following code in the .js file and customize the prameters:
 
+**USE JAVASCRIPT:**
+
 ```
-$(document).ready(function() {
-  $('.desktop' /* Your desktop menu id or class */).menuBreaker({
-    mobileMenu: '.mobile', // Your mobile menu id or class
-    openCloseButton: '#openMenu', // Mobile menu open/close button
-    overlay: '.overlay', // Menu overlay
-    navbarHeight: 70 // Navbar height
-  });
-});
+var elem = document.querySelectorAll('.desktop');
+var menuBreaker = new MenuBreaker(elem);
 ```
+
+**OR JQUERY:**
+
+```
+$('.desktop').MenuBreaker();
+```
+
+## Options
+|Name|Default|Type|
+|-----|-----|----|
+|mobileMenu|'.mobile'|String|
+|openCloseButton|'#openMenu'|String|
+|overlay|'.overlay'|String|
+|navbarHeight|70|Number|
+
+## Questions & Answers
+Does the plugin require jQuery?   
+**NO**
 
 ## License
 

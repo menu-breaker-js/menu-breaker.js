@@ -16,7 +16,10 @@ body, html {
 	z-index: 100;
 	position: relative;
   height: 70px;
-  background-color: #4286f4;
+  background-color: #474e59;
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
 }
 
 .menu {
@@ -62,10 +65,13 @@ body, html {
 }
 
 .desktop li a:hover {
-	background-color: #00c0ff;
+	background-color: #960000;
 }
 
 .desktop .submenu {
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
 	position: absolute;
 	display: block;
 	margin-top: 0;
@@ -122,7 +128,7 @@ body, html {
 
 .desktop .submenu li a {
   display: block;
-  background-color: #00c0ff;
+  background-color: #960000;
   min-height: 45px;
   height: auto;
   border: 0;
@@ -133,7 +139,7 @@ body, html {
 }
 
 .desktop .submenu li a:hover {
-  background-color: #f77300;
+  background-color: #d34747;
   -webkit-transition: all 300ms ease;
   -o-transition: all 300ms ease;
   transition: all 300ms ease;
@@ -149,12 +155,14 @@ body, html {
 }
 
 .mobile {
+	padding-left: 25px;
 	opacity: 0.95;
-  background-color: #4286f4;
+  background-color: #474e59;
   text-align: left;
+	height: calc(100vh - 70px);
   margin: 0 auto;
 	overflow-y: scroll;
-	transition: all 300ms ease;
+	transition: left 300ms ease;
   width: 300px;
   position: absolute;
   top: 70px;
@@ -179,11 +187,12 @@ body, html {
 }
 
 .mobile li a:hover {
-	color: #4286f4;
+	color: #960000;
   background-color: #ffffff;
 }
 
 .overlay {
+	transition: all 300ms ease;
 	cursor: pointer;
 	width: 100%;
 	height: calc(100% - 70px);
@@ -193,7 +202,7 @@ body, html {
 }
 
 .info {
-	color: #f77300;
+	color: #960000;
 	text-transform: uppercase;
 	padding: 20px;
   text-align: center;

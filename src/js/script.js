@@ -1,4 +1,6 @@
-$('.desktop').menuBreaker();
-$(window).on('load resize', function () {
-  $('.mobile').height($(window).height() - $('nav').height());
-});
+// LOAD PLUGIN (JAVASCRIPT) ...
+var elem = document.querySelectorAll('.desktop');
+var menuBreaker = new MenuBreaker(elem);
+
+// ... (JQUERY)
+// $('.desktop').MenuBreaker();
