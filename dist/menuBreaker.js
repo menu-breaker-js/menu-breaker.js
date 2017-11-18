@@ -20,7 +20,12 @@
   'use strict';
 
   class Plugin {
+
     constructor(elem, options) {
+
+      let _this = this;
+
+      let el = elem;
 
       const defaults = {};
 
@@ -55,10 +60,6 @@
       } else {
         defaults.navbarHeight = 70;
       }
-
-      let el = elem;
-
-      let _this = this;
 
       _this.breakMenu(el, defaults);
 
