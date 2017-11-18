@@ -9,7 +9,7 @@ Place the following code in the .js file and customize the prameters:
 **USE JAVASCRIPT:**
 
 ```
-var elem = document.querySelectorAll('.desktop');
+var elem = document.querySelector('.desktop');
 var menuBreaker = new MenuBreaker(elem);
 ```
 
