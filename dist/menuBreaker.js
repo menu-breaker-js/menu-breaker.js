@@ -29,34 +29,26 @@
 
       const defaults = {};
 
-      if (options !== undefined) {
-        if (options.mobileMenu !== undefined && typeof options.mobileMenu == 'string') {
-          defaults.mobileMenu = options.mobileMenu;
-        }
+      if (options !== undefined && options.mobileMenu !== undefined && typeof options.mobileMenu === 'string') {
+        defaults.mobileMenu = options.mobileMenu;
       } else {
         defaults.mobileMenu = '.mobile';
       }
 
-      if (options !== undefined) {
-        if (options.openCloseButton !== undefined && typeof options.openCloseButton == 'string') {
-          defaults.openCloseButton = options.openCloseButton;
-        }
+      if (options !== undefined && options.openCloseButton !== undefined && typeof options.openCloseButton === 'string') {
+        defaults.openCloseButton = options.openCloseButton;
       } else {
         defaults.openCloseButton = '#openMenu';
       }
 
-      if (options !== undefined) {
-        if (options.overlay !== undefined && typeof options.overlay == 'string') {
-          defaults.overlay = options.overlay;
-        }
+      if (options !== undefined && options.overlay !== undefined && typeof options.overlay === 'string') {
+        defaults.overlay = options.overlay;
       } else {
         defaults.overlay = '.overlay';
       }
 
-      if (options !== undefined) {
-        if (options.navbarHeight !== undefined && typeof options.navbarHeight == 'number') {
-          defaults.navbarHeight = options.navbarHeight;
-        }
+      if (options !== undefined && options.navbarHeight !== undefined && typeof options.navbarHeight === 'number') {
+        defaults.navbarHeight = options.navbarHeight;
       } else {
         defaults.navbarHeight = 70;
       }
@@ -75,46 +67,50 @@
 
       let checkSize = elem.offsetHeight;
 
+      let mobileMenu = document.querySelector(options.mobileMenu);
+      let openCloseButton = document.querySelector(options.openCloseButton);
+      let overlay = document.querySelector(options.overlay);
+
       if (checkSize > options.navbarHeight) {
 
         var firstClick = false;
 
-        document.querySelector(options.openCloseButton).style.display = 'block';
+        openCloseButton.style.display = 'block';
         elem.style.opacity = 0;
         elem.style.visibility = 'hidden';
 
-        if (document.querySelector(options.mobileMenu).classList.contains('open')) {
-          document.querySelector(options.mobileMenu).style.display = 'block';
-          document.querySelector(options.overlay).style.display = 'block';
+        if (mobileMenu.classList.contains('open')) {
+          mobileMenu.style.display = 'block';
+          overlay.style.display = 'block';
         }
 
-        document.querySelector(options.openCloseButton).addEventListener('click', function(index) {
+        openCloseButton.addEventListener('click', function(index) {
           if (firstClick == false) {
-            document.querySelector(options.mobileMenu).classList.add('open');
-            document.querySelector(options.overlay).style.opacity = 1;
-            document.querySelector(options.overlay).style.display = 'block';
+            mobileMenu.classList.add('open');
+            overlay.style.opacity = 1;
+            overlay.style.display = 'block';
             firstClick = true;
           } else {
-            document.querySelector(options.mobileMenu).classList.remove('open');
-            document.querySelector(options.overlay).style.opacity = 0;
+            mobileMenu.classList.remove('open');
+            overlay.style.opacity = 0;
             firstClick = false;
           }
         });
 
-        document.querySelector(options.overlay).addEventListener('click', function() {
-          document.querySelector(options.mobileMenu).classList.remove('open');
-          document.querySelector(options.overlay).style.opacity = 0;
+        overlay.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          overlay.style.opacity = 0;
           firstClick = false;
         });
 
       } else {
 
-        if (document.querySelector(options.mobileMenu).classList.contains('open')) {
-          document.querySelector(options.mobileMenu).style.display = 'none';
-          document.querySelector(options.overlay).style.display = 'none';
+        if (mobileMenu.classList.contains('open')) {
+          mobileMenu.style.display = 'none';
+          overlay.style.display = 'none';
         }
 
-        document.querySelector(options.openCloseButton).style.display = 'none';
+        openCloseButton.style.display = 'none';
         elem.style.opacity = 1;
         elem.style.visibility = 'visible';
 
