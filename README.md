@@ -1,6 +1,6 @@
-# menuBreaker
+# menu-breaker.js
 
-Break menu on resize (desktop to mobile)
+JavaScript & jQuery plugin to switch between mobile and desktop menu and change submenus side on browser window resize.
 
 ## How to use?
 
@@ -22,9 +22,6 @@ $('.desktop').MenuBreaker();
 ## Options
 |Name|Default|Type|
 |-----|-----|----|
-|mobileMenu|'.mobile'|String|
-|openCloseButton|'#openMenu'|String|
-|overlay|'.overlay'|String|
 |navbarHeight|70|Number|
 
 ## Questions & Answers
