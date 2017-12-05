@@ -1,4 +1,4 @@
-# menu-breaker.js
+# menuBreaker
 
 Break menu on resize (desktop to mobile)
 
@@ -22,9 +22,9 @@ $('.desktop').MenuBreaker();
 ## Options
 |Name|Default|Type|
 |-----|-----|----|
-|mobileMenu|.mobile|String|
-|openCloseButton|#openMenu|String|
-|overlay|.overlay|String|
+|mobileMenu|'.mobile'|String|
+|openCloseButton|'#openMenu'|String|
+|overlay|'.overlay'|String|
 |navbarHeight|70|Number|
 
 ## Questions & Answers

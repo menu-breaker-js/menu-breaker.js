@@ -1,5 +1,5 @@
 {
-  "name": "menu-breaker.js",
+  "name": "menu-breaker",
   "version": "1.0.0",
   "description": "Break HTML menu on resize",
   "main": "dist/menuBreaker.js",
