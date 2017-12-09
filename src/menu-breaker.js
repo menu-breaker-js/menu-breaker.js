@@ -4,8 +4,6 @@
 * MIT License
 */
 
-'use strict';
-
 class MenuBreaker {
   constructor(element, settings = {}) {
     this.element = element;
