@@ -20,9 +20,14 @@ $('.desktop').MenuBreaker();
 ```
 
 ## Options
-|Name|Default|Type|
+|Name|Type|Default|Description|
 |-----|-----|----|
-|navbarHeight|70|Number|
+|'navbar-height'|number|70|Desktop menu height|
+|show|boolean|true|Show (true) or hide (false) mobile menu overlay|
+|opacity|number|0.5|Opacity of mobile menu overlay|
+|cursor|string|'pointer'|Cursor style on hover on mobile menu overlay|
+|transition|string|'all 300ms ease'|Transition of mobile menu overlay during opening and closing|
+|'background-color'|string|'#000'|Background color of mobile menu overlay|
 
 ## Questions & Answers
 Does the plugin require jQuery?   

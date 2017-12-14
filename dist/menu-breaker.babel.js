@@ -55,7 +55,7 @@ var MenuBreaker = function () {
           'cursor': this.settings.overlay.cursor,
           'width': '100%',
           'height': '100%',
-          'position': 'absolute',
+          'position': 'fixed',
           'display': 'none',
           'opacity': 0,
           'background-color': this.settings.overlay['background-color']
