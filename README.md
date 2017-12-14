@@ -21,7 +21,7 @@ $('.desktop').MenuBreaker();
 
 ## Options
 |Name|Type|Default|Description|
-|-----|-----|----|
+|-----|-----|----|----|
 |'navbar-height'|number|70|Desktop menu height|
 |show|boolean|true|Show (true) or hide (false) mobile menu overlay|
 |opacity|number|0.5|Opacity of mobile menu overlay|
