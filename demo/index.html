@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width initial-scale=1.0"/>
+		<title>menu-breaker.js | Break HTML menu on resize</title>
+		<link href="https://fonts.googleapis.com/css?family=Dosis:500,800&amp;subset=latin-ext" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<nav id="navbar">
+			<div class="menu">
+				<ul class="desktop">
+					<li><a href="#">Menu item 1</a>
+						<ul class="submenu">
+							<li><a href="#">Submenu item 1</a></li>
+							<li><a href="#">Submenu item 2</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Menu item 2</a></li>
+					<li><a href="#">Menu item 3</a></li>
+					<li><a href="#">Menu item 4</a></li>
+					<li><a href="#">Menu item 5</a></li>
+					<li><a href="#">Menu item 6</a></li>
+					<li><a href="#">Menu item 7</a>
+						<ul class="submenu">
+							<li><a href="#">Submenu item 1</a></li>
+							<li><a href="#">Submenu item 2</a>
+								<ul class="submenu">
+									<li><a href="#">Submenu item 1</a></li>
+									<li><a href="#">Submenu item 2</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="mobile" data-mobile>
+					<li><a href="#">Menu item 1</a>
+						<ul class="submenu">
+							<li><a href="#">Submenu item 1</a></li>
+							<li><a href="#">Submenu item 2</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Menu item 2</a></li>
+					<li><a href="#">Menu item 3</a></li>
+					<li><a href="#">Menu item 4</a></li>
+					<li><a href="#">Menu item 5</a></li>
+					<li><a href="#">Menu item 6</a></li>
+					<li><a href="#">Menu item 7</a>
+						<ul class="submenu">
+							<li><a href="#">Submenu item 1</a></li>
+							<li><a href="#">Submenu item 2</a>
+								<ul class="submenu">
+									<li><a href="#">Submenu item 1</a></li>
+									<li><a href="#">Submenu item 2</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="openMenu" data-open data-close>MENU</div>
+		</nav>
+		<section class="desc">
+			<h1>menu-breaker.js</h1>
+			<p>With <b>menu-breaker.js</b> You can switch between mobile and desktop menu on window resize.<br>This plugin cal also detect sub menu side based on space between side of browser window and sub menu element</p>
+			<p>You can use menu-breaker.js with Vanilla JavaScript e.g:</p>
+      <pre class="language-javascript"><code>var elem = document.querySelector('.desktop');
+var menuBreaker = new MenuBreaker(elem);</code></pre>
+      <p>or jQuery:</p>
+      <pre class="language-javascript"><code>$('.desktop').MenuBreaker();</code></pre>
+		</section>
+
+		<section class="desc">
+			<h3>Mobile menu</h3>
+			<p>To set mobile menu, add to mobile menu container div:</p>
+			<pre class="language-javascript"><code>data-mobile</code></pre>
+		</section>
+
+		<section class="desc">
+			<h3>Button to open mobile menu</h3>
+			<p>To set button to open mobile menu, add to mobile menu button element:</p>
+			<pre class="language-javascript"><code>data-open</code></pre>
+		</section>
+
+		<section class="desc">
+			<h3>Button to close mobile menu</h3>
+			<p>To set button to close mobile menu, add to mobile menu close element<br>(if You want to set one button to open and close menu add this code to mobile menu open button):</p>
+			<pre class="language-javascript"><code>data-close</code></pre>
+		</section>
+
+		<section class="desc">
+			<h3>Desktop menu height</h3>
+			<p>To set desktop menu height, place in JavaScript (or jQuery) options:</p>
+			<pre class="language-javascript"><code>'navbar-height': 70</code></pre>
+		</section>
+
+		<section class="desc">
+			<h3>Overlay options</h3>
+			<p>You can style overlay element using this options:</p>
+			<pre class="language-javascript"><code>overlay: {
+	show: true,
+	opacity: 0.5,
+	cursor: 'pointer',
+	transition: 'all 300ms ease',
+	'background-color': '#000'
+}</code></pre>
+		</section>
+
+		<script src="../src/menu-breaker.js"></script>
+		<script src="js/prism.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>
