@@ -1,24 +1,24 @@
 {
-  "name": "menu-breaker",
+  "name": "menu-breaker.js",
   "version": "1.0.0",
   "description": "Break HTML menu on resize",
-  "main": "dist/menuBreaker.js",
+  "main": "dist/menu-breaker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JB1905/menuBreaker.git"
+    "url": "git+https://github.com/JB1905/menu-breaker.js.git"
   },
   "author": "Jakub Biesiada",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JB1905/menuBreaker/issues"
+    "url": "https://github.com/JB1905/menu-breaker.js/issues"
   },
-  "homepage": "https://github.com/JB1905/menuBreaker#readme",
+  "homepage": "https://github.com/JB1905/menu-breaker.js#readme",
   "devDependencies": {
     "babel-preset-env": "^1.6.1",
-    "gulp-babel": "^7.0.0",
+    "gulp-babel": "^7.0.1",
     "gulp-sass": "^3.1.0"
   },
   "dependencies": {
