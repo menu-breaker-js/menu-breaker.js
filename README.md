@@ -1,38 +1,59 @@
 # menu-breaker.js
 
-JavaScript & jQuery plugin to switch between mobile and desktop menu and change submenus side on browser window resize.
+JavaScript & jQuery plugin to switch between mobile and desktop menu and change submenus side on browser window resize
 
-## How to use?
+## Usage
+At the beginning connect the library with Your project:
 
-Place the following code in the .js file and customize the prameters:
-
-**USE JAVASCRIPT:**
-
+**&bull; using script tag in HTML:**
 ```
-var elem = document.querySelector('.desktop');
-var menuBreaker = new MenuBreaker(elem);
+<script src="/directory/to/library/folder/menu-breaker.js"></script>
 ```
 
-**OR JQUERY:**
+<br>
+Next use library with:
+
+**&bull; Vanilla JavaScript e.g:**
+```
+const elem = document.querySelector('.desktop');
+const menuBreaker = new MenuBreaker(elem, {
+  // options...
+});
+```
+
+**&bull; or jQuery e.g:**
+
+*Connect jQuery in HTML*
+```
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+```
+
+*or include via command line and CommonJS*
+```
+npm install jquery // npm
+yarn add jquery // yarn
+bower install jquery // bower
+```
 
 ```
-$('.desktop').MenuBreaker();
+const jQuery = require('jquery');
+```
+
+*and call plugin on element*
+```
+$('.desktop').menuBreaker({
+  // options...
+});
 ```
 
 ## Options
-|Name|Type|Default|Description|
-|-----|-----|----|----|
-|'navbar-height'|number|70|Desktop menu height|
-|show|boolean|true|Show (true) or hide (false) mobile menu overlay|
-|opacity|number|0.5|Opacity of mobile menu overlay|
-|cursor|string|'pointer'|Cursor style on hover on mobile menu overlay|
-|transition|string|'all 300ms ease'|Transition of mobile menu overlay during opening and closing|
-|'background-color'|string|'#000'|Background color of mobile menu overlay|
-
-## Questions & Answers
-Does the plugin require jQuery?   
-**NO**
+Name | Type | Default | Description | Available options
+-|-|-|-|-
+**navbar-height** | number | `70` | Desktop menu height | e.g: `50`, `86`, etc.
+**onMenuOpen** | function | `null` | call function on mobile menu open | `() => { // code }`
+**onMenuClose** | function | `null` | call function on mobile menu close | `() => { // code }`
+**isMobile** | function | `null` | call function when is mobile menu | `() => { // code }`
+**isDesktop** | function | `null` | call function when is desktop menu | `() => { // code }`
 
 ## License
-
 This project is licensed under the MIT License
