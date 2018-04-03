@@ -5,8 +5,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /*!
-* menu-breaker.js v1.0
-* Copyright 2017 Jakub Biesiada
+* menu-breaker.js v1.0 beta 2
+* Copyright 2017-2018 Jakub Biesiada
 * MIT License
 */
 
@@ -16,14 +16,24 @@ var MenuBreaker = function () {
 
     _classCallCheck(this, MenuBreaker);
 
+    // set menu element
     this.element = element;
 
+    // set settings
     this.settings = this.settings(settings);
 
-    this.firstClick = false;
+    this.mobileMenu = document.querySelector('[data-mobile]');
+    this.openButton = document.querySelector('[data-open]');
+    this.closeButton = document.querySelector('[data-close]');
+    this.openCloseButton = document.querySelector('[data-open-close]');
 
-    this.overlay();
+    this.isOpen = false;
+
     this.changeMenu();
+
+    this.menuButton(true);
+
+    // call events function
     this.addEventListeners();
   }
 
@@ -32,6 +42,7 @@ var MenuBreaker = function () {
     value: function addEventListeners() {
       var _this = this;
 
+      // resize event
       window.addEventListener('resize', function () {
         return _this.onWindowResize();
       });
@@ -42,140 +53,110 @@ var MenuBreaker = function () {
       this.changeMenu();
     }
   }, {
-    key: 'overlay',
-    value: function overlay() {
-      if (this.settings.overlay.show === true) {
-        this.overlay = document.createElement('div');
-        this.overlay.classList.add('overlay');
-        document.body.appendChild(this.overlay);
-
-        Object.assign(this.overlay.style, {
-          'top': '0px',
-          'transition': this.settings.overlay.transition,
-          'cursor': this.settings.overlay.cursor,
-          'width': '100%',
-          'height': '100%',
-          'position': 'fixed',
-          'display': 'none',
-          'opacity': 0,
-          'background-color': this.settings.overlay['background-color']
-        });
-      }
-    }
-  }, {
     key: 'subLevels',
     value: function subLevels() {
-      this.listEl = this.element.querySelectorAll(':not(li) > ul > li > ul');
+      this.items = this.element.querySelectorAll(':not(li) > ul > li > ul');
 
-      // FIRST LEVEL SUBMENU DETECT SIDE
-      for (var i = 0; i < this.listEl.length; i++) {
-        var parentWidth = this.listEl[i].parentNode.clientWidth;
-        var subMenuWidth = this.listEl[i].clientWidth;
-        if (this.listEl[i].parentNode.offsetLeft + subMenuWidth > this.windowWidth) {
-          this.listEl[i].style.marginLeft = -subMenuWidth + parentWidth + 'px';
+      // side of first level submenu
+      for (var i = 0; i < this.items.length; i++) {
+        var parentWidth = this.items[i].parentNode.clientWidth;
+        var subMenuWidth = this.items[i].clientWidth;
+
+        if (this.items[i].parentNode.offsetLeft + subMenuWidth > window.innerWidth) {
+          this.items[i].style.marginLeft = -subMenuWidth + parentWidth + 'px';
         } else {
-          this.listEl[i].style.marginLeft = '0px';
+          this.items[i].style.marginLeft = '0px';
         }
 
-        // NEXT LEVEL SUBMENU DETECT SIDE
-        this.subListEl = this.listEl[i].querySelectorAll('li > ul');
+        // side of next level submenu
+        this.subItems = this.items[i].querySelectorAll('li > ul');
 
-        for (var j = 0; j < this.subListEl.length; j++) {
-          var subSubMenuWidth = this.subListEl[j].offsetWidth;
-          if (this.subListEl[j].parentNode.parentNode.parentNode.offsetLeft + subSubMenuWidth + subMenuWidth > this.windowWidth) {
-            this.subListEl[j].style.marginLeft = -subSubMenuWidth + 'px';
+        for (var j = 0; j < this.subItems.length; j++) {
+          var subSubMenuWidth = this.subItems[j].offsetWidth;
+
+          if (this.subItems[j].parentNode.parentNode.parentNode.offsetLeft + subSubMenuWidth + subMenuWidth > window.innerWidth) {
+            this.subItems[j].style.marginLeft = -subSubMenuWidth + 'px';
           } else {
-            this.subListEl[j].style.marginLeft = subSubMenuWidth + 'px';
+            this.subItems[j].style.marginLeft = subSubMenuWidth + 'px';
           }
         }
       }
     }
   }, {
+    key: 'open',
+    value: function open() {
+      this.mobileMenu.classList.add('open');
+      this.isOpen = true;
+
+      if (typeof this.settings.onMenuOpen === 'function') this.settings.onMenuOpen();
+    }
+  }, {
+    key: 'close',
+    value: function close() {
+      this.mobileMenu.classList.remove('open');
+      this.isOpen = false;
+
+      if (typeof this.settings.onMenuClose === 'function') this.settings.onMenuClose();
+    }
+  }, {
     key: 'menuButton',
-    value: function menuButton() {
+    value: function menuButton(val) {
       var _this2 = this;
 
-      this.openButton.addEventListener('click', function () {
-        if (_this2.firstClick === false) {
-          _this2.mobileMenu.classList.add('open');
-          _this2.overlay.style.opacity = _this2.settings.overlay.opacity;
-          _this2.overlay.style.display = 'block';
-          _this2.firstClick = true;
-        } else {
-          _this2.mobileMenu.classList.remove('open');
-          _this2.overlay.style.opacity = 0;
-          _this2.firstClick = false;
+      if (val) {
+        if (this.openButton !== null) this.openButton.addEventListener('click', function () {
+          return _this2.open();
+        });
+
+        if (this.closeButton !== null) this.closeButton.addEventListener('click', function () {
+          return _this2.close();
+        });
+
+        if (this.openCloseButton !== null) {
+          this.openCloseButton.addEventListener('click', function () {
+            if (!_this2.isOpen) {
+              _this2.open();
+            } else {
+              _this2.close();
+            }
+          });
         }
-      });
-    }
-  }, {
-    key: 'overlayClose',
-    value: function overlayClose() {
-      var _this3 = this;
-
-      this.overlay.addEventListener('click', function () {
-        _this3.mobileMenu.classList.remove('open');
-        _this3.overlay.style.opacity = 0;
-        _this3.firstClick = false;
-      });
-    }
-  }, {
-    key: 'mobile',
-    value: function mobile() {
-      this.openButton.style.display = 'block';
-      this.element.style.opacity = 0;
-      this.element.style.visibility = 'hidden';
-
-      if (this.mobileMenu.classList.contains('open')) {
-        this.mobileMenu.style.display = 'block';
-        this.overlay.style.display = 'block';
       }
 
-      this.menuButton();
-      this.overlayClose();
+      if (this.isOpen) this.mobileMenu.classList.add('open');
     }
   }, {
     key: 'desktop',
     value: function desktop() {
-      if (this.mobileMenu.classList.contains('open')) {
-        this.mobileMenu.style.display = 'none';
-        this.overlay.style.display = 'none';
-      }
-
-      this.openButton.style.display = 'none';
-      this.element.style.opacity = 1;
-      this.element.style.visibility = 'visible';
+      if (this.mobileMenu.classList.contains('open') > 0) this.mobileMenu.classList.remove('open');
 
       this.subLevels();
     }
   }, {
     key: 'changeMenu',
     value: function changeMenu() {
-      this.windowWidth = window.innerWidth;
-      this.checkSize = this.element.offsetHeight;
+      // detect and switch menu
+      if (this.element.offsetHeight > this.settings['navbar-height']) {
+        this.menuButton();
 
-      this.mobileMenu = document.querySelector('[data-mobile]');
-      this.openButton = document.querySelector('[data-open]');
-      this.closeButton = document.querySelector('[data-close]');
-
-      if (this.checkSize > this.settings['navbar-height']) {
-        this.mobile();
+        if (typeof this.settings.isMobile === 'function') this.settings.isMobile();
       } else {
         this.desktop();
+
+        if (typeof this.settings.isDesktop === 'function') this.settings.isDesktop();
       }
     }
   }, {
     key: 'settings',
     value: function settings(_settings) {
+      // defaults
       var defaults = {
-        overlay: {
-          show: true,
-          opacity: 0.5,
-          cursor: 'pointer',
-          transition: 'all 300ms ease',
-          'background-color': '#000'
-        },
-        'navbar-height': 70
+        'navbar-height': 70, // max height of navbar
+
+        onMenuOpen: null, // call function on mobile menu open
+        onMenuClose: null, // call function on mobile menu close
+        isMobile: null, // call function when is mobile menu
+        isDesktop: null // call function when is desktop menu
       };
 
       var custom = {};
@@ -195,13 +176,27 @@ var MenuBreaker = function () {
   return MenuBreaker;
 }();
 
-// JQUERY PLUGIN CALL IF JQUERY LOADED
+// jQuery
 
 
 if (window.jQuery) {
   var $ = window.jQuery;
 
-  $.fn.MenuBreaker = function (options) {
+  $.fn.menuBreaker = function (options) {
     new MenuBreaker(this[0], options);
   };
+}
+
+// AMD
+if (typeof define === 'function' && define.amd) {
+  define('MenuBreaker', [], function () {
+    return MenuBreaker;
+  });
+
+  // CommonJS
+} else if (typeof exports !== 'undefined' && !exports.nodeType) {
+  if (typeof module !== 'undefined' && !module.nodeType && module.exports) {
+    exports = module.exports = MenuBreaker;
+  }
+  exports.default = MenuBreaker;
 }
