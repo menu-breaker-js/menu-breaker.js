@@ -1,5 +1,5 @@
 /*!
-* menu-breaker.js v1.0 beta 2
+* menu-breaker.js v1.0.0 beta 2
 * Copyright 2017-2018 Jakub Biesiada
 * MIT License
 */
@@ -66,14 +66,14 @@ class MenuBreaker {
   }
 
   open() {
-    this.mobileMenu.classList.add('open');
+    this.mobileMenu.classList.add(this.settings['open-class']);
     this.isOpen = true;
 
     if (typeof this.settings.onMenuOpen === 'function') this.settings.onMenuOpen();
   }
 
   close() {
-    this.mobileMenu.classList.remove('open');
+    this.mobileMenu.classList.remove(this.settings['open-class']);
     this.isOpen = false;
 
     if (typeof this.settings.onMenuClose === 'function') this.settings.onMenuClose();
@@ -98,12 +98,12 @@ class MenuBreaker {
       }
     }
 
-    if (this.isOpen) this.mobileMenu.classList.add('open');
+    if (this.isOpen) this.mobileMenu.classList.add(this.settings['open-class']);
   }
 
   desktop() {
-    if (this.mobileMenu.classList.contains('open') > 0)
-     this.mobileMenu.classList.remove('open');
+    if (this.mobileMenu.classList.contains(this.settings['open-class']) > 0)
+     this.mobileMenu.classList.remove(this.settings['open-class']);
 
     this.subLevels();
   }
@@ -111,7 +111,7 @@ class MenuBreaker {
   changeMenu() {
     // detect and switch menu
     if (this.element.offsetHeight > this.settings['navbar-height']) {
-      this.menuButton();
+      this.menuButton(false);
 
       if (typeof this.settings.isMobile === 'function') this.settings.isMobile();
     } else {
@@ -125,6 +125,7 @@ class MenuBreaker {
     // defaults
     let defaults = {
       'navbar-height': 70, // max height of navbar
+      'open-class': 'open', // Name of class added to mobile menu, after click data-open or data-open-close element
 
       onMenuOpen: null, // call function on mobile menu open
       onMenuClose: null, // call function on mobile menu close
@@ -147,8 +148,15 @@ class MenuBreaker {
 }
 
 // jQuery
-if (window.jQuery) {
-  let $ = window.jQuery;
+let scope;
+
+if (typeof window !== 'undefined')
+ scope = window;
+else if (typeof global !== 'undefined')
+ scope = global;
+
+if (scope && scope.jQuery) {
+  let $ = scope.jQuery;
 
   $.fn.menuBreaker = function(options) {
     new MenuBreaker(this[0], options);
