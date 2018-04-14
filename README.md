@@ -2,6 +2,9 @@
 
 JavaScript & jQuery plugin to switch between mobile and desktop menu and change submenus side on browser window resize
 
+## Demo
+**[See plugin in action](https://jb1905.github.io/menu-breaker.js/)**
+
 ## Usage
 At the beginning connect the library with Your project:
 
