@@ -5,7 +5,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /*!
-* menu-breaker.js v1.0 beta 2
+* menu-breaker.js v1.0.0 beta 2
 * Copyright 2017-2018 Jakub Biesiada
 * MIT License
 */
@@ -85,7 +85,7 @@ var MenuBreaker = function () {
   }, {
     key: 'open',
     value: function open() {
-      this.mobileMenu.classList.add('open');
+      this.mobileMenu.classList.add(this.settings['open-class']);
       this.isOpen = true;
 
       if (typeof this.settings.onMenuOpen === 'function') this.settings.onMenuOpen();
@@ -93,7 +93,7 @@ var MenuBreaker = function () {
   }, {
     key: 'close',
     value: function close() {
-      this.mobileMenu.classList.remove('open');
+      this.mobileMenu.classList.remove(this.settings['open-class']);
       this.isOpen = false;
 
       if (typeof this.settings.onMenuClose === 'function') this.settings.onMenuClose();
@@ -123,12 +123,12 @@ var MenuBreaker = function () {
         }
       }
 
-      if (this.isOpen) this.mobileMenu.classList.add('open');
+      if (this.isOpen) this.mobileMenu.classList.add(this.settings['open-class']);
     }
   }, {
     key: 'desktop',
     value: function desktop() {
-      if (this.mobileMenu.classList.contains('open') > 0) this.mobileMenu.classList.remove('open');
+      if (this.mobileMenu.classList.contains(this.settings['open-class']) > 0) this.mobileMenu.classList.remove(this.settings['open-class']);
 
       this.subLevels();
     }
@@ -137,7 +137,7 @@ var MenuBreaker = function () {
     value: function changeMenu() {
       // detect and switch menu
       if (this.element.offsetHeight > this.settings['navbar-height']) {
-        this.menuButton();
+        this.menuButton(false);
 
         if (typeof this.settings.isMobile === 'function') this.settings.isMobile();
       } else {
@@ -152,6 +152,7 @@ var MenuBreaker = function () {
       // defaults
       var defaults = {
         'navbar-height': 70, // max height of navbar
+        'open-class': 'open', // Name of class added to mobile menu, after click data-open or data-open-close element
 
         onMenuOpen: null, // call function on mobile menu open
         onMenuClose: null, // call function on mobile menu close
@@ -179,8 +180,12 @@ var MenuBreaker = function () {
 // jQuery
 
 
-if (window.jQuery) {
-  var $ = window.jQuery;
+var scope = void 0;
+
+if (typeof window !== 'undefined') scope = window;else if (typeof global !== 'undefined') scope = global;
+
+if (scope && scope.jQuery) {
+  var $ = scope.jQuery;
 
   $.fn.menuBreaker = function (options) {
     new MenuBreaker(this[0], options);
