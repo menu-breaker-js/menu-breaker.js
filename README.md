@@ -19,6 +19,11 @@ npm install menu-breaker // npm
 yarn add menu-breaker // yarn
 ```
 
+```
+const MenuBreaker = require('menu-breaker'); // CommonJS
+import MenuBreaker form 'menu-breaker'; // ES6
+```
+
 <br>
 Next use library with:
 
