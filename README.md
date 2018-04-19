@@ -13,6 +13,12 @@ At the beginning connect the library with Your project:
 <script src="/directory/to/library/folder/menu-breaker.js"></script>
 ```
 
+**&bull; or via command line and CommonJS/ES6 import:**
+```
+npm install menu-breaker // npm
+yarn add menu-breaker // yarn
+```
+
 <br>
 Next use library with:
 
