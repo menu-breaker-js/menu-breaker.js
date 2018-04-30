@@ -7,6 +7,13 @@
     "type": "git",
     "url": "git+https://github.com/JB1905/menu-breaker.js.git"
   },
+  "keywords": [
+    "JavaScript",
+    "ES6",
+    "jQuery",
+    "menu",
+    "responsive"
+  ],
   "author": "Jakub Biesiada",
   "license": "MIT",
   "bugs": {
