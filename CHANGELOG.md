@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 beta 2
+## 1.0.0 beta 2 / 1.0.0
 * **redesigned demo page (new header view, dark theme)**
 * updated README.md
 * added CHANGELOG.md

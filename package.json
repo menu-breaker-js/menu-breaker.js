@@ -1,6 +1,6 @@
 {
   "name": "menu-breaker",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0",
   "description": "Break HTML menu on resize",
   "main": "dist/menu-breaker.js",
   "repository": {

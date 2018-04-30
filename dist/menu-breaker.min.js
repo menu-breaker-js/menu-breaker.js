@@ -1,5 +1,5 @@
 /*!
-* menu-breaker.js v1.0.0 beta 2
+* menu-breaker.js v1.0.0
 * Copyright 2017-2018 Jakub Biesiada
 * MIT License
 */
