@@ -6,7 +6,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 /*!
 * menu-breaker.js v1.0.0
-* Copyright 2017-2018 Jakub Biesiada
+* Copyright 2017-present Jakub Biesiada
 * MIT License
 */
 

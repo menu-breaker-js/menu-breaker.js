@@ -1,6 +1,6 @@
 /*!
 * menu-breaker.js v1.0.0
-* Copyright 2017-2018 Jakub Biesiada
+* Copyright 2017-present Jakub Biesiada
 * MIT License
 */
 
@@ -41,8 +41,8 @@ class MenuBreaker {
 
     // side of first level submenu
     for (let i = 0; i < this.items.length; i++) {
-      let parentWidth = this.items[i].parentNode.clientWidth;
-      let subMenuWidth = this.items[i].clientWidth;
+      const parentWidth = this.items[i].parentNode.clientWidth;
+      const subMenuWidth = this.items[i].clientWidth;
 
       if (this.items[i].parentNode.offsetLeft + subMenuWidth > window.innerWidth) {
         this.items[i].style.marginLeft = `${-subMenuWidth + parentWidth}px`;
@@ -54,7 +54,7 @@ class MenuBreaker {
       this.subItems = this.items[i].querySelectorAll('li > ul');
 
       for (let j = 0; j < this.subItems.length; j++) {
-        let subSubMenuWidth = this.subItems[j].offsetWidth;
+        const subSubMenuWidth = this.subItems[j].offsetWidth;
 
         if (this.subItems[j].parentNode.parentNode.parentNode.offsetLeft + subSubMenuWidth + subMenuWidth > window.innerWidth) {
           this.subItems[j].style.marginLeft = `${-subSubMenuWidth}px`;
@@ -123,7 +123,7 @@ class MenuBreaker {
 
   settings(settings) {
     // defaults
-    let defaults = {
+    const defaults = {
       'navbar-height': 70, // max height of navbar
       'open-class': 'open', // Name of class added to mobile menu, after click data-open or data-open-close element
 
@@ -133,7 +133,7 @@ class MenuBreaker {
       isDesktop: null // call function when is desktop menu
     };
 
-    let custom = {};
+    const custom = {};
 
     for (let setting in defaults) {
       if (setting in settings) {
@@ -156,7 +156,7 @@ else if (typeof global !== 'undefined')
  scope = global;
 
 if (scope && scope.jQuery) {
-  let $ = scope.jQuery;
+  const $ = scope.jQuery;
 
   $.fn.menuBreaker = function(options) {
     new MenuBreaker(this[0], options);
