@@ -21,7 +21,7 @@ yarn add menu-breaker // yarn
 
 ```
 const MenuBreaker = require('menu-breaker'); // CommonJS
-import MenuBreaker form 'menu-breaker'; // ES6
+import MenuBreaker from 'menu-breaker'; // ES6
 ```
 
 <br>
