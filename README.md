@@ -3,10 +3,10 @@
 [![NPM version](http://img.shields.io/npm/v/menu-breaker.svg?style=flat-square)](https://www.npmjs.com/package/menu-breaker)
 [![NPM downloads](http://img.shields.io/npm/dm/menu-breaker.svg?style=flat-square)](https://www.npmjs.com/package/menu-breaker)
 
-### Demo
+## Demo
 **[See plugin in action](https://jb1905.github.io/menu-breaker.js/)**
 
-### How to Install
+## How to Install
 At the beginning connect the library with Your project:
 
 **&bull; using script tag in HTML:**
@@ -20,7 +20,7 @@ $ npm install menu-breaker // npm
 $ yarn add menu-breaker // yarn
 ```
 
-### Getting Started
+## Getting Started
 **If you added library via package manager use CommonJS/ES6 import:**
 ```js
 const MenuBreaker = require('menu-breaker'); // CommonJS
@@ -62,7 +62,7 @@ $('.desktop').menuBreaker({
 });
 ```
 
-### Options
+## Options
 Name | Type | Default | Description | Available options
 -|-|-|-|-
 **navbar-height** | number | `70` | Desktop menu height | e.g: `50`, `86`, etc.
@@ -72,5 +72,5 @@ Name | Type | Default | Description | Available options
 **isMobile** | function | `null` | call function when is mobile menu | `() => { // code }`
 **isDesktop** | function | `null` | call function when is desktop menu | `() => { // code }`
 
-### License
+## License
 This project is licensed under the MIT License © 2018-present Jakub Biesiada
