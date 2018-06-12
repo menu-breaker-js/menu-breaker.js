@@ -16,8 +16,8 @@ At the beginning connect the library with Your project:
 
 **&bull; or via command line:**
 ```sh
-$ npm install menu-breaker // npm
-$ yarn add menu-breaker // yarn
+$ npm install menu-breaker
+$ yarn add menu-breaker
 ```
 
 ## Getting Started
@@ -46,9 +46,9 @@ const menuBreaker = new MenuBreaker(elem, {
 
 *or include via command line and CommonJS*
 ```sh
-$ npm install jquery // npm
-$ yarn add jquery // yarn
-$ bower install jquery // bower
+$ npm install jquery
+$ yarn add jquery
+$ bower install jquery
 ```
 
 ```js

@@ -1,6 +1,6 @@
 /*!
 * menu-breaker.js v1.0.0
-* Copyright 2017-present Jakub Biesiada
+* Copyright © 2017-present Jakub Biesiada. All rights reserved.
 * MIT License
 */
 
