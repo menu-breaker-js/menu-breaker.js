@@ -82,10 +82,10 @@ class MenuBreaker {
   menuButton(val) {
     if (val) {
       if (this.openButton !== null)
-       this.openButton.addEventListener('click', () => this.open());
+        this.openButton.addEventListener('click', () => this.open());
 
       if (this.closeButton !== null)
-       this.closeButton.addEventListener('click', () => this.close());
+        this.closeButton.addEventListener('click', () => this.close());
 
       if (this.openCloseButton !== null) {
         this.openCloseButton.addEventListener('click', () => {
@@ -100,7 +100,7 @@ class MenuBreaker {
 
   desktop() {
     if (this.mobileMenu.classList.contains(this.settings['open-class']) > 0)
-     this.mobileMenu.classList.remove(this.settings['open-class']);
+      this.mobileMenu.classList.remove(this.settings['open-class']);
 
     this.subLevels();
   }
