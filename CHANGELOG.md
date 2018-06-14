@@ -1,5 +1,13 @@
 # menu-breaker.js Changelog
 
+## 1.0.1
+#### Documentation
+- updated README.md and CHANGELOG.md
+
+#### More
+- updated devDependencies
+- small internal improvements
+
 ## 1.0.0 beta 2 (2018-04-14) / 1.0.0 (2018-04-30)
 #### New Feature
 - added `data-open-close` (the same input to close and open mobile menu)

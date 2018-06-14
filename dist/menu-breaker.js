@@ -1,5 +1,5 @@
 /*!
-* menu-breaker.js v1.0.0
+* menu-breaker.js v1.0.1
 * Copyright © 2017-present Jakub Biesiada. All rights reserved.
 * MIT License
 */
@@ -89,11 +89,8 @@ class MenuBreaker {
 
       if (this.openCloseButton !== null) {
         this.openCloseButton.addEventListener('click', () => {
-          if (!this.isOpen) {
-            this.open();
-          } else {
-            this.close();
-          }
+          if (!this.isOpen) this.open();
+          else this.close();
         });
       }
     }
@@ -150,10 +147,8 @@ class MenuBreaker {
 // jQuery
 let scope;
 
-if (typeof window !== 'undefined')
- scope = window;
-else if (typeof global !== 'undefined')
- scope = global;
+if (typeof window !== 'undefined') scope = window;
+else if (typeof global !== 'undefined') scope = global;
 
 if (scope && scope.jQuery) {
   const $ = scope.jQuery;
