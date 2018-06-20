@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="./demo/css/style.css"/>
 	</head>
 	<body>
-		<div class="overlay" data-close></div>
+		<div class="overlay" close></div>
 		<nav id="navbar">
 			<div class="menu">
 				<ul class="desktop">
@@ -39,9 +39,9 @@
 			</div>
 		</nav>
 
-		<div id="open-menu" data-open-close>&#9776;</div>
+		<div id="open-menu" open-close>&#9776;</div>
 
-		<ul class="mobile" data-mobile>
+		<ul class="mobile" mobile>
 			<li><a href="#">Menu item 1</a>
 				<ul class="submenu">
 					<li><a href="#">Submenu item 1</a></li>
@@ -122,25 +122,25 @@ $ bower install jquery</code></pre>
 			<section>
 				<h3>Mobile menu</h3>
 				<p>To set mobile menu, add to mobile menu container div:</p>
-				<pre class="language-html"><code>&#60;div data-mobile&#62;</code></pre>
+				<pre class="language-html"><code>&#60;div mobile&#62;</code></pre>
 			</section>
 
 			<section>
 				<h3>Button to open mobile menu</h3>
 				<p>To set button to open mobile menu, add to mobile menu button element:</p>
-				<pre class="language-html"><code>&#60;div data-open&#62;</code></pre>
+				<pre class="language-html"><code>&#60;div open&#62;</code></pre>
 			</section>
 
 			<section>
 				<h3>Button to close mobile menu</h3>
 				<p>To set button to close mobile menu, add to mobile menu close element:</p>
-				<pre class="language-html"><code>&#60;div data-close&#62;</code></pre>
+				<pre class="language-html"><code>&#60;div close&#62;</code></pre>
 			</section>
 
 			<section>
 				<h3>Button to open and close mobile menu</h3>
 				<p>To set button to open and close mobile menu, add to mobile menu close element:</p>
-				<pre class="language-html"><code>&#60;div data-open-close&#62;</code></pre>
+				<pre class="language-html"><code>&#60;div open-close&#62;</code></pre>
 			</section>
 
 			<section>
@@ -150,7 +150,7 @@ $ bower install jquery</code></pre>
 			</section>
 		</div>
 
-		<script src="./dist/menu-breaker.babel.min.js"></script>
+		<script src="./src/menu-breaker.js"></script>
 		<script src="./demo/js/prism.js"></script>
 		<script src="./demo/js/script.js"></script>
 	</body>

@@ -12,10 +12,10 @@ class MenuBreaker {
     // set settings
     this.settings = this.settings(settings);
 
-    this.mobileMenu = document.querySelector('[data-mobile]');
-    this.openButton = document.querySelector('[data-open]');
-    this.closeButton = document.querySelector('[data-close]');
-    this.openCloseButton = document.querySelector('[data-open-close]');
+    this.mobileMenu = document.querySelector('[mobile]');
+    this.openButton = document.querySelector('[open]');
+    this.closeButton = document.querySelector('[close]');
+    this.openCloseButton = document.querySelector('[open-close]');
 
     this.isOpen = false;
 

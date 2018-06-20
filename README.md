@@ -66,7 +66,7 @@ $('.desktop').menuBreaker({
 Name | Type | Default | Description | Available options
 -|-|-|-|-
 **navbar-height** | number | `70` | Desktop menu height | e.g: `50`, `86`, etc.
-**open-class** | string | `open` | Name of class added to mobile menu, after click `data-open` or `data-open-close` element | name of class
+**open-class** | string | `open` | Name of class added to mobile menu, after click `open` or `open-close` element | name of class
 **onMenuOpen** | function | `null` | call function on mobile menu open | `() => { // code }`
 **onMenuClose** | function | `null` | call function on mobile menu close | `() => { // code }`
 **isMobile** | function | `null` | call function when is mobile menu | `() => { // code }`
