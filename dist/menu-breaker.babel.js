@@ -5,8 +5,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /*!
-* menu-breaker.js v1.0.0
-* Copyright 2017-present Jakub Biesiada
+* menu-breaker.js v1.0.1
+* Copyright © 2017-present Jakub Biesiada. All rights reserved.
 * MIT License
 */
 
@@ -114,11 +114,7 @@ var MenuBreaker = function () {
 
         if (this.openCloseButton !== null) {
           this.openCloseButton.addEventListener('click', function () {
-            if (!_this2.isOpen) {
-              _this2.open();
-            } else {
-              _this2.close();
-            }
+            if (!_this2.isOpen) _this2.open();else _this2.close();
           });
         }
       }

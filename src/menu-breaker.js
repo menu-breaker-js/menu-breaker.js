@@ -1,6 +1,6 @@
 /*!
-* menu-breaker.js v1.0.0
-* Copyright 2017-present Jakub Biesiada
+* menu-breaker.js v1.0.1
+* Copyright © 2017-present Jakub Biesiada. All rights reserved.
 * MIT License
 */
 
@@ -44,7 +44,10 @@ class MenuBreaker {
       const parentWidth = this.items[i].parentNode.clientWidth;
       const subMenuWidth = this.items[i].clientWidth;
 
-      if (this.items[i].parentNode.offsetLeft + subMenuWidth > window.innerWidth) {
+      if (
+        this.items[i].parentNode.offsetLeft + subMenuWidth >
+        window.innerWidth
+      ) {
         this.items[i].style.marginLeft = `${-subMenuWidth + parentWidth}px`;
       } else {
         this.items[i].style.marginLeft = '0px';
@@ -56,7 +59,12 @@ class MenuBreaker {
       for (let j = 0; j < this.subItems.length; j++) {
         const subSubMenuWidth = this.subItems[j].offsetWidth;
 
-        if (this.subItems[j].parentNode.parentNode.parentNode.offsetLeft + subSubMenuWidth + subMenuWidth > window.innerWidth) {
+        if (
+          this.subItems[j].parentNode.parentNode.parentNode.offsetLeft +
+            subSubMenuWidth +
+            subMenuWidth >
+          window.innerWidth
+        ) {
           this.subItems[j].style.marginLeft = `${-subSubMenuWidth}px`;
         } else {
           this.subItems[j].style.marginLeft = `${subSubMenuWidth}px`;
@@ -69,31 +77,30 @@ class MenuBreaker {
     this.mobileMenu.classList.add(this.settings['open-class']);
     this.isOpen = true;
 
-    if (typeof this.settings.onMenuOpen === 'function') this.settings.onMenuOpen();
+    if (typeof this.settings.onMenuOpen === 'function')
+      this.settings.onMenuOpen();
   }
 
   close() {
     this.mobileMenu.classList.remove(this.settings['open-class']);
     this.isOpen = false;
 
-    if (typeof this.settings.onMenuClose === 'function') this.settings.onMenuClose();
+    if (typeof this.settings.onMenuClose === 'function')
+      this.settings.onMenuClose();
   }
 
   menuButton(val) {
     if (val) {
       if (this.openButton !== null)
-       this.openButton.addEventListener('click', () => this.open());
+        this.openButton.addEventListener('click', () => this.open());
 
       if (this.closeButton !== null)
-       this.closeButton.addEventListener('click', () => this.close());
+        this.closeButton.addEventListener('click', () => this.close());
 
       if (this.openCloseButton !== null) {
         this.openCloseButton.addEventListener('click', () => {
-          if (!this.isOpen) {
-            this.open();
-          } else {
-            this.close();
-          }
+          if (!this.isOpen) this.open();
+          else this.close();
         });
       }
     }
@@ -103,7 +110,7 @@ class MenuBreaker {
 
   desktop() {
     if (this.mobileMenu.classList.contains(this.settings['open-class']) > 0)
-     this.mobileMenu.classList.remove(this.settings['open-class']);
+      this.mobileMenu.classList.remove(this.settings['open-class']);
 
     this.subLevels();
   }
@@ -113,11 +120,13 @@ class MenuBreaker {
     if (this.element.offsetHeight > this.settings['navbar-height']) {
       this.menuButton(false);
 
-      if (typeof this.settings.isMobile === 'function') this.settings.isMobile();
+      if (typeof this.settings.isMobile === 'function')
+        this.settings.isMobile();
     } else {
       this.desktop();
 
-      if (typeof this.settings.isDesktop === 'function') this.settings.isDesktop();
+      if (typeof this.settings.isDesktop === 'function')
+        this.settings.isDesktop();
     }
   }
 
@@ -150,17 +159,15 @@ class MenuBreaker {
 // jQuery
 let scope;
 
-if (typeof window !== 'undefined')
- scope = window;
-else if (typeof global !== 'undefined')
- scope = global;
+if (typeof window !== 'undefined') scope = window;
+else if (typeof global !== 'undefined') scope = global;
 
 if (scope && scope.jQuery) {
   const $ = scope.jQuery;
 
   $.fn.menuBreaker = function(options) {
     new MenuBreaker(this[0], options);
-  }
+  };
 }
 
 // AMD
@@ -169,7 +176,7 @@ if (typeof define === 'function' && define.amd) {
     return MenuBreaker;
   });
 
-// CommonJS
+  // CommonJS
 } else if (typeof exports !== 'undefined' && !exports.nodeType) {
   if (typeof module !== 'undefined' && !module.nodeType && module.exports) {
     exports = module.exports = MenuBreaker;
