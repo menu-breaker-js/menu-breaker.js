@@ -1,11 +1,11 @@
 {
   "name": "menu-breaker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Break HTML menu on resize",
   "main": "dist/menu-breaker.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JB1905/menu-breaker.js.git"
+    "url": "https://github.com/JB1905/menu-breaker.js.git"
   },
   "keywords": [
     "JavaScript",
