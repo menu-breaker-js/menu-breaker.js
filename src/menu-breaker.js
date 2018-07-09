@@ -1,10 +1,4 @@
-/*!
-* menu-breaker.js v1.0.1
-* Copyright © 2017-present Jakub Biesiada. All rights reserved.
-* MIT License
-*/
-
-class MenuBreaker {
+export default class MenuBreaker {
   constructor(element, settings = {}) {
     // set menu element
     this.element = element;
@@ -168,18 +162,4 @@ if (scope && scope.jQuery) {
   $.fn.menuBreaker = function(options) {
     new MenuBreaker(this[0], options);
   };
-}
-
-// AMD
-if (typeof define === 'function' && define.amd) {
-  define('MenuBreaker', [], function() {
-    return MenuBreaker;
-  });
-
-  // CommonJS
-} else if (typeof exports !== 'undefined' && !exports.nodeType) {
-  if (typeof module !== 'undefined' && !module.nodeType && module.exports) {
-    exports = module.exports = MenuBreaker;
-  }
-  exports.default = MenuBreaker;
 }
