@@ -1,13 +1,12 @@
 # menu-breaker.js Changelog
 
-## 1.1.0 beta 1 (Soon)
+## 1.1.0 rc 1 (2018-07-18)
 #### Repository changes
-- switch from Gulp to Webpack
-- update Babel to v7
-- add unit tests
+- switched from Gulp to Webpack
+- updated Babel to v7
 - only 2 dist version
-- change main file from menu-breaker.js to menu-breaker.min.js
-- move demo to gh-pages branch
+- changed main file from menu-breaker.js to menu-breaker.min.js
+- moved demo to gh-pages branch
 
 ## 1.0.1 (2018-07-05)
 #### Documentation
