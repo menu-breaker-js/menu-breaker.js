@@ -1,6 +1,6 @@
 {
   "name": "menu-breaker",
-  "version": "1.1.0-rc.1",
+  "version": "1.1.0",
   "description": "Break HTML menu on resize",
   "main": "lib/menu-breaker.min.js",
   "scripts": {
