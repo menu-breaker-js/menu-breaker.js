@@ -1,5 +1,19 @@
 # menu-breaker.js Changelog
 
+## 1.1.0 (2018-07-20)
+#### Internal
+- changed some global variables to const
+- changed for loops to for-of
+- code cleaned up
+
+## 1.1.0 rc 1 (2018-07-18)
+#### Repository changes
+- switched from Gulp to Webpack
+- updated Babel to v7
+- only 2 dist version
+- changed main file from menu-breaker.js to menu-breaker.min.js
+- moved demo to gh-pages branch
+
 ## 1.0.1 (2018-07-05)
 #### Documentation
 - updated README.md and CHANGELOG.md

@@ -1,10 +1,4 @@
-/*!
-* menu-breaker.js v1.0.1
-* Copyright © 2017-present Jakub Biesiada. All rights reserved.
-* MIT License
-*/
-
-class MenuBreaker {
+export default class MenuBreaker {
   constructor(element, settings = {}) {
     // set menu element
     this.element = element;
@@ -20,7 +14,6 @@ class MenuBreaker {
     this.isOpen = false;
 
     this.changeMenu();
-
     this.menuButton(true);
 
     // call events function
@@ -37,37 +30,34 @@ class MenuBreaker {
   }
 
   subLevels() {
-    this.items = this.element.querySelectorAll(':not(li) > ul > li > ul');
+    const items = this.element.querySelectorAll(':not(li) > ul > li > ul');
 
     // side of first level submenu
-    for (let i = 0; i < this.items.length; i++) {
-      const parentWidth = this.items[i].parentNode.clientWidth;
-      const subMenuWidth = this.items[i].clientWidth;
+    for (const item of items) {
+      const parentWidth = item.parentNode.clientWidth;
+      const subMenuWidth = item.clientWidth;
 
-      if (
-        this.items[i].parentNode.offsetLeft + subMenuWidth >
-        window.innerWidth
-      ) {
-        this.items[i].style.marginLeft = `${-subMenuWidth + parentWidth}px`;
+      if (item.parentNode.offsetLeft + subMenuWidth > window.innerWidth) {
+        item.style.marginLeft = `${-subMenuWidth + parentWidth}px`;
       } else {
-        this.items[i].style.marginLeft = '0px';
+        item.style.marginLeft = '0px';
       }
 
       // side of next level submenu
-      this.subItems = this.items[i].querySelectorAll('li > ul');
+      const subItems = item.querySelectorAll('li > ul');
 
-      for (let j = 0; j < this.subItems.length; j++) {
-        const subSubMenuWidth = this.subItems[j].offsetWidth;
+      for (const subItem of subItems) {
+        const subSubMenuWidth = subItem.offsetWidth;
 
         if (
-          this.subItems[j].parentNode.parentNode.parentNode.offsetLeft +
+          subItem.parentNode.parentNode.parentNode.offsetLeft +
             subSubMenuWidth +
             subMenuWidth >
           window.innerWidth
         ) {
-          this.subItems[j].style.marginLeft = `${-subSubMenuWidth}px`;
+          subItem.style.marginLeft = `${-subSubMenuWidth}px`;
         } else {
-          this.subItems[j].style.marginLeft = `${subSubMenuWidth}px`;
+          subItem.style.marginLeft = `${subSubMenuWidth}px`;
         }
       }
     }
@@ -89,8 +79,8 @@ class MenuBreaker {
       this.settings.onMenuClose();
   }
 
-  menuButton(val) {
-    if (val) {
+  menuButton(init) {
+    if (init) {
       if (this.openButton !== null)
         this.openButton.addEventListener('click', () => this.open());
 
@@ -144,7 +134,7 @@ class MenuBreaker {
 
     const custom = {};
 
-    for (let setting in defaults) {
+    for (const setting in defaults) {
       if (setting in settings) {
         custom[setting] = settings[setting];
       } else {
@@ -168,18 +158,4 @@ if (scope && scope.jQuery) {
   $.fn.menuBreaker = function(options) {
     new MenuBreaker(this[0], options);
   };
-}
-
-// AMD
-if (typeof define === 'function' && define.amd) {
-  define('MenuBreaker', [], function() {
-    return MenuBreaker;
-  });
-
-  // CommonJS
-} else if (typeof exports !== 'undefined' && !exports.nodeType) {
-  if (typeof module !== 'undefined' && !module.nodeType && module.exports) {
-    exports = module.exports = MenuBreaker;
-  }
-  exports.default = MenuBreaker;
 }
