@@ -124,7 +124,7 @@ export default class MenuBreaker {
     // defaults
     const defaults = {
       'navbar-height': 70, // max height of navbar
-      'open-class': 'open', // Name of class added to mobile menu, after click data-open or data-open-close element
+      'open-class': 'open', // name of class added to mobile menu, after click data-open or data-open-close element
 
       onMenuOpen: null, // call function on mobile menu open
       onMenuClose: null, // call function on mobile menu close
