@@ -1,5 +1,12 @@
 # menu-breaker.js Changelog
 
+## Unreleased
+#### Dependencies
+- updated Babel to `^7.0.0` stable
+- updated babel-plugin-add-module-exports to `^0.3.3`
+- updated Webpack to `^4.17.1`
+- updated babel-loader to `^8.0.0` stable
+
 ## 1.1.0 (2018-07-20)
 #### Internal
 - changed some global variables to const
@@ -7,7 +14,7 @@
 - code cleaned up
 
 ## 1.1.0 rc 1 (2018-07-18)
-#### Repository changes
+#### Repository Changes
 - switched from Gulp to Webpack
 - updated Babel to v7
 - only 2 dist version
