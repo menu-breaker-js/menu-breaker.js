@@ -1,9 +1,7 @@
 export default class MenuBreaker {
   constructor(element, settings = {}) {
-    // set menu element
     this.element = element;
 
-    // set settings
     this.settings = this.settings(settings);
 
     this.mobileMenu = document.querySelector('[data-mobile]');
@@ -15,13 +13,10 @@ export default class MenuBreaker {
 
     this.changeMenu();
     this.menuButton(true);
-
-    // call events function
     this.addEventListeners();
   }
 
   addEventListeners() {
-    // resize event
     window.addEventListener('resize', () => this.onWindowResize());
   }
 
@@ -67,25 +62,29 @@ export default class MenuBreaker {
     this.mobileMenu.classList.add(this.settings['open-class']);
     this.isOpen = true;
 
-    if (typeof this.settings.onMenuOpen === 'function')
+    if (typeof this.settings.onMenuOpen === 'function') {
       this.settings.onMenuOpen();
+    }
   }
 
   close() {
     this.mobileMenu.classList.remove(this.settings['open-class']);
     this.isOpen = false;
 
-    if (typeof this.settings.onMenuClose === 'function')
+    if (typeof this.settings.onMenuClose === 'function') {
       this.settings.onMenuClose();
+    }
   }
 
   menuButton(init) {
     if (init) {
-      if (this.openButton !== null)
+      if (this.openButton !== null) {
         this.openButton.addEventListener('click', () => this.open());
+      }
 
-      if (this.closeButton !== null)
+      if (this.closeButton !== null) {
         this.closeButton.addEventListener('click', () => this.close());
+      }
 
       if (this.openCloseButton !== null) {
         this.openCloseButton.addEventListener('click', () => {
@@ -99,8 +98,9 @@ export default class MenuBreaker {
   }
 
   desktop() {
-    if (this.mobileMenu.classList.contains(this.settings['open-class']) > 0)
+    if (this.mobileMenu.classList.contains(this.settings['open-class']) > 0) {
       this.mobileMenu.classList.remove(this.settings['open-class']);
+    }
 
     this.subLevels();
   }
@@ -110,18 +110,19 @@ export default class MenuBreaker {
     if (this.element.offsetHeight > this.settings['navbar-height']) {
       this.menuButton(false);
 
-      if (typeof this.settings.isMobile === 'function')
+      if (typeof this.settings.isMobile === 'function') {
         this.settings.isMobile();
+      }
     } else {
       this.desktop();
 
-      if (typeof this.settings.isDesktop === 'function')
+      if (typeof this.settings.isDesktop === 'function') {
         this.settings.isDesktop();
+      }
     }
   }
 
   settings(settings) {
-    // defaults
     const defaults = {
       'navbar-height': 70, // max height of navbar
       'open-class': 'open', // name of class added to mobile menu, after click data-open or data-open-close element
