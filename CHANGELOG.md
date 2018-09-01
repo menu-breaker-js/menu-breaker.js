@@ -7,6 +7,9 @@
 - updated Webpack to `^4.17.1`
 - updated babel-loader to `^8.0.0` stable
 
+#### Repository Changes
+- removed map for production version
+
 ## 1.1.0 (2018-07-20)
 #### Internal
 - changed some global variables to const
