@@ -7,21 +7,19 @@
 **[See plugin in action](https://jb1905.github.io/menu-breaker.js/)**
 
 ## How to Install
-At the beginning connect the library with Your project:
-
-**&bull; using script tag in HTML:**
-```html
-<script src="/directory/to/library/folder/menu-breaker.js"></script>
-```
-
-**&bull; or via command line:**
+At the beginning install the library in Your project via npm or Yarn:
 ```sh
 $ npm install menu-breaker
 $ yarn add menu-breaker
 ```
 
 ## Getting Started
-**If you added library via package manager use CommonJS/ES6 import:**
+**Connect using script tag in HTML:**
+```html
+<script src="/directory/to/library/folder/menu-breaker.js"></script>
+```
+
+**Or CommonJS/ES6 import:**
 ```js
 const MenuBreaker = require('menu-breaker'); // CommonJS
 import MenuBreaker from 'menu-breaker'; // ES6

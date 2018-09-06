@@ -78,15 +78,15 @@ export default class MenuBreaker {
 
   menuButton(init) {
     if (init) {
-      if (this.openButton !== null) {
+      if (this.openButton) {
         this.openButton.addEventListener('click', () => this.open());
       }
 
-      if (this.closeButton !== null) {
+      if (this.closeButton) {
         this.closeButton.addEventListener('click', () => this.close());
       }
 
-      if (this.openCloseButton !== null) {
+      if (this.openCloseButton) {
         this.openCloseButton.addEventListener('click', () => {
           if (!this.isOpen) this.open();
           else this.close();
@@ -136,11 +136,8 @@ export default class MenuBreaker {
     const custom = {};
 
     for (const setting in defaults) {
-      if (setting in settings) {
-        custom[setting] = settings[setting];
-      } else {
-        custom[setting] = defaults[setting];
-      }
+      if (setting in settings) custom[setting] = settings[setting];
+      else custom[setting] = defaults[setting];
     }
 
     return custom;

@@ -1,5 +1,9 @@
 # menu-breaker.js Changelog
 
+## 1.1.1 (2018-09-06)
+#### Documentation
+- updated README.md
+
 ## 1.1.1 beta 1 (2018-09-02)
 #### Dependencies
 - updated Babel to `^7.0.0` stable
