@@ -1,6 +1,6 @@
 # menu-breaker.js Changelog
 
-## 1.1.1 (2018-09-06)
+## 1.1.1 / 1.1.2 (2018-09-06)
 #### Documentation
 - updated README.md
 
