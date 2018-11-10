@@ -1,5 +1,9 @@
 # menu-breaker.js Changelog
 
+## 1.1.3 (2018-09-10)
+#### Bug Fix
+- fixed bug with `window` global variable in Node.js
+
 ## 1.1.1 / 1.1.2 (2018-09-06)
 #### Documentation
 - updated README.md

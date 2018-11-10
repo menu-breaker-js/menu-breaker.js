@@ -25,7 +25,8 @@ const config = {
     filename: outputFile,
     library: 'MenuBreaker',
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: true,
+    globalObject: 'global'
   },
   module: {
     rules: [
