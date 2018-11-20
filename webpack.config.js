@@ -2,9 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 const env = require('yargs').argv.env;
 
-let libraryName = 'menu-breaker';
+const libraryName = 'menu-breaker';
 
-let outputFile, mode;
+let outputFile, mode, devtool;
 
 if (env === 'build') {
   mode = 'production';
