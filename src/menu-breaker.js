@@ -1,8 +1,11 @@
 export default class MenuBreaker {
   constructor(element, settings = {}) {
     this.element = element;
+    this.settings = this.extendSettings(settings);
 
-    this.settings = this.settings(settings);
+    if (typeof this.settings.onInit === 'function') {
+      this.settings.onInit();
+    }
 
     this.mobileMenu = document.querySelector('[data-mobile]');
     this.openButton = document.querySelector('[data-open]');
@@ -17,12 +20,10 @@ export default class MenuBreaker {
   }
 
   addEventListeners() {
-    window.addEventListener('resize', () => this.onWindowResize());
+    window.addEventListener('resize', this.onWindowResize);
   }
 
-  onWindowResize() {
-    this.changeMenu();
-  }
+  onWindowResize = () => this.changeMenu();
 
   subLevels() {
     const items = this.element.querySelectorAll(':not(li) > ul > li > ul');
@@ -35,7 +36,7 @@ export default class MenuBreaker {
       if (item.parentNode.offsetLeft + subMenuWidth > window.innerWidth) {
         item.style.marginLeft = `${-subMenuWidth + parentWidth}px`;
       } else {
-        item.style.marginLeft = '0px';
+        item.style.marginLeft = 0;
       }
 
       // side of next level submenu
@@ -98,7 +99,7 @@ export default class MenuBreaker {
   }
 
   desktop() {
-    if (this.mobileMenu.classList.contains(this.settings['open-class']) > 0) {
+    if (this.mobileMenu.classList.contains(this.settings['open-class'])) {
       this.mobileMenu.classList.remove(this.settings['open-class']);
     }
 
@@ -106,7 +107,6 @@ export default class MenuBreaker {
   }
 
   changeMenu() {
-    // detect and switch menu
     if (this.element.offsetHeight > this.settings['navbar-height']) {
       this.menuButton(false);
 
@@ -122,29 +122,29 @@ export default class MenuBreaker {
     }
   }
 
-  settings(settings) {
-    const defaults = {
+  extendSettings(settings) {
+    const defaultSettigs = {
       'navbar-height': 70, // max height of navbar
       'open-class': 'open', // name of class added to mobile menu, after click data-open or data-open-close element
 
+      onInit: null, // callback on plugin init
       onMenuOpen: null, // callback on mobile menu open
       onMenuClose: null, // callback on mobile menu close
       isMobile: null, // callback when is mobile menu
       isDesktop: null // callback when is desktop menu
     };
 
-    const custom = {};
+    const newSettings = {};
 
-    for (const setting in defaults) {
-      if (setting in settings) custom[setting] = settings[setting];
-      else custom[setting] = defaults[setting];
+    for (const property in defaultSettigs) {
+      if (property in settings) newSettings[property] = settings[property];
+      else custom[property] = defaultSettigs[property];
     }
 
-    return custom;
+    return newSettings;
   }
 }
 
-// jQuery
 let scope;
 
 if (typeof window !== 'undefined') scope = window;
