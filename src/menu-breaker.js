@@ -29,7 +29,7 @@ export default class MenuBreaker {
     const items = this.element.querySelectorAll(':not(li) > ul > li > ul');
 
     // side of first level submenu
-    for (const item of items) {
+    items.forEach(item => {
       const parentWidth = item.parentNode.clientWidth;
       const subMenuWidth = item.clientWidth;
 
@@ -42,7 +42,7 @@ export default class MenuBreaker {
       // side of next level submenu
       const subItems = item.querySelectorAll('li > ul');
 
-      for (const subItem of subItems) {
+      subItems.forEach(subItem => {
         const subSubMenuWidth = subItem.offsetWidth;
 
         if (
@@ -55,8 +55,8 @@ export default class MenuBreaker {
         } else {
           subItem.style.marginLeft = `${subSubMenuWidth}px`;
         }
-      }
-    }
+      });
+    });
   }
 
   open() {
@@ -136,10 +136,10 @@ export default class MenuBreaker {
 
     const newSettings = {};
 
-    for (const property in defaultSettigs) {
+    Object.keys(defaultSettigs).forEach(property => {
       if (property in settings) newSettings[property] = settings[property];
-      else custom[property] = defaultSettigs[property];
-    }
+      else newSettings[property] = defaultSettigs[property];
+    });
 
     return newSettings;
   }
@@ -153,7 +153,5 @@ else if (typeof global !== 'undefined') scope = global;
 if (scope && scope.jQuery) {
   const $ = scope.jQuery;
 
-  $.fn.menuBreaker = function(options) {
-    new MenuBreaker(this[0], options);
-  };
+  $.fn.menuBreaker = (element, options) => new MenuBreaker(element[0], options);
 }
