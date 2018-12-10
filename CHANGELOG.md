@@ -1,5 +1,17 @@
 # menu-breaker.js Changelog
 
+## 1.1.5 beta 1 (2018-12-10)
+#### New Feature
+- added `onInit` callback
+
+#### Internal
+- renamed method `settings()` to `extendSettings()` to avoid conflict with variable `settings`
+
+#### Repository Changes
+- added Travis CI config
+- added Prettier config
+- added ESLint config
+
 ## 1.1.3 / 1.1.4 (2018-11-10)
 #### Bug Fix
 - fixed bug with `window` global variable in Node.js

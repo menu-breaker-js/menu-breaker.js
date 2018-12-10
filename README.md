@@ -7,7 +7,7 @@
 **[See plugin in action](https://jb1905.github.io/menu-breaker.js/)**
 
 ## How to Install
-At the beginning install the library in Your project via npm or Yarn:
+At the beginning install the library in your project via npm or Yarn:
 ```sh
 $ npm install menu-breaker
 $ yarn add menu-breaker
@@ -65,6 +65,7 @@ Name | Type | Default | Description | Available options
 -|-|-|-|-
 **navbar-height** | number | `70` | Desktop menu height | e.g: `50`, `86`, etc.
 **open-class** | string | `open` | Name of class added to mobile menu, after click `open` or `open-close` element | Name of class
+**onInit** | function | `null` | Callback on plugin init | `() => { // code }`
 **onMenuOpen** | function | `null` | Callback on mobile menu open | `() => { // code }`
 **onMenuClose** | function | `null` | Callback on mobile menu close | `() => { // code }`
 **isMobile** | function | `null` | Callback when is mobile menu | `() => { // code }`
