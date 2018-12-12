@@ -29,7 +29,7 @@ export default class MenuBreaker {
     const items = this.element.querySelectorAll(':not(li) > ul > li > ul');
 
     // side of first level submenu
-    items.forEach(item => {
+    for (const item of items) {
       const parentWidth = item.parentNode.clientWidth;
       const subMenuWidth = item.clientWidth;
 
@@ -42,7 +42,7 @@ export default class MenuBreaker {
       // side of next level submenu
       const subItems = item.querySelectorAll('li > ul');
 
-      subItems.forEach(subItem => {
+      for (const subItem of subItems) {
         const subSubMenuWidth = subItem.offsetWidth;
 
         if (
@@ -55,8 +55,8 @@ export default class MenuBreaker {
         } else {
           subItem.style.marginLeft = `${subSubMenuWidth}px`;
         }
-      });
-    });
+      }
+    }
   }
 
   open() {
@@ -136,10 +136,10 @@ export default class MenuBreaker {
 
     const newSettings = {};
 
-    Object.keys(defaultSettigs).forEach(property => {
+    for (const property in defaultSettigs) {
       if (property in settings) newSettings[property] = settings[property];
       else newSettings[property] = defaultSettigs[property];
-    });
+    }
 
     return newSettings;
   }
