@@ -123,7 +123,7 @@ export default class MenuBreaker {
   }
 
   extendSettings(settings) {
-    const defaultSettigs = {
+    const defaultSettings = {
       'navbar-height': 70, // max height of navbar
       'open-class': 'open', // name of class added to mobile menu, after click data-open or data-open-close element
 
@@ -136,9 +136,9 @@ export default class MenuBreaker {
 
     const newSettings = {};
 
-    for (const property in defaultSettigs) {
+    for (const property in defaultSettings) {
       if (property in settings) newSettings[property] = settings[property];
-      else newSettings[property] = defaultSettigs[property];
+      else newSettings[property] = defaultSettings[property];
     }
 
     return newSettings;
