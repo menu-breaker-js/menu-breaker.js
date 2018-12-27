@@ -1,10 +1,12 @@
 export default class MenuBreaker {
-  constructor(element, settings = {}) {
-    this.element = element;
-    this.settings = this.extendSettings(settings);
+  constructor(data = {}) {
+    this.element = data.element;
+    this.methods = data.methods || {};
 
-    if (typeof this.settings.onInit === 'function') {
-      this.settings.onInit();
+    this.settings = this.extendSettings(data.settings || {});
+
+    if (typeof this.methods.onInit === 'function') {
+      this.methods.onInit();
     }
 
     this.mobileMenu = document.querySelector('[data-mobile]');
@@ -63,8 +65,8 @@ export default class MenuBreaker {
     this.mobileMenu.classList.add(this.settings['open-class']);
     this.isOpen = true;
 
-    if (typeof this.settings.onMenuOpen === 'function') {
-      this.settings.onMenuOpen();
+    if (typeof this.methods.onMenuOpen === 'function') {
+      this.methods.onMenuOpen();
     }
   }
 
@@ -72,8 +74,8 @@ export default class MenuBreaker {
     this.mobileMenu.classList.remove(this.settings['open-class']);
     this.isOpen = false;
 
-    if (typeof this.settings.onMenuClose === 'function') {
-      this.settings.onMenuClose();
+    if (typeof this.methods.onMenuClose === 'function') {
+      this.methods.onMenuClose();
     }
   }
 
@@ -110,14 +112,14 @@ export default class MenuBreaker {
     if (this.element.offsetHeight > this.settings['navbar-height']) {
       this.menuButton(false);
 
-      if (typeof this.settings.isMobile === 'function') {
-        this.settings.isMobile();
+      if (typeof this.methods.isMobile === 'function') {
+        this.methods.isMobile();
       }
     } else {
       this.desktop();
 
-      if (typeof this.settings.isDesktop === 'function') {
-        this.settings.isDesktop();
+      if (typeof this.methods.isDesktop === 'function') {
+        this.methods.isDesktop();
       }
     }
   }
@@ -125,13 +127,7 @@ export default class MenuBreaker {
   extendSettings(settings) {
     const defaultSettings = {
       'navbar-height': 70, // max height of navbar
-      'open-class': 'open', // name of class added to mobile menu, after click data-open or data-open-close element
-
-      onInit: null, // callback on plugin init
-      onMenuOpen: null, // callback on mobile menu open
-      onMenuClose: null, // callback on mobile menu close
-      isMobile: null, // callback when is mobile menu
-      isDesktop: null // callback when is desktop menu
+      'open-class': 'open' // name of class added to mobile menu, after click data-open or data-open-close element
     };
 
     const newSettings = {};
@@ -153,5 +149,7 @@ else if (typeof global !== 'undefined') scope = global;
 if (scope && scope.jQuery) {
   const $ = scope.jQuery;
 
-  $.fn.menuBreaker = (element, options) => new MenuBreaker(element[0], options);
+  $.fn.menuBreaker = (element, { methods, settings }) => {
+    new MenuBreaker({ element, methods, settings });
+  };
 }

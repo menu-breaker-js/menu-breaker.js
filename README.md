@@ -30,8 +30,14 @@ Next use library with:
 **&bull; Vanilla JavaScript e.g:**
 ```js
 const elem = document.querySelector('.desktop');
-const menuBreaker = new MenuBreaker(elem, {
-  // options...
+const menuBreaker = new MenuBreaker({
+  element: elem,
+  settings: {
+    // options...
+  },
+  methods: {
+    // methods...
+  }
 });
 ```
 
@@ -56,20 +62,30 @@ const jQuery = require('jquery');
 *and call plugin on element*
 ```js
 $('.desktop').menuBreaker({
-  // options...
+  settings: {
+    // options...
+  },
+  methods: {
+    // methods...
+  }
 });
 ```
 
 ## Options
+### Settings
 Name | Type | Default | Description | Available options
 -|-|-|-|-
 **navbar-height** | number | `70` | Desktop menu height | e.g: `50`, `86`, etc.
 **open-class** | string | `open` | Name of class added to mobile menu, after click `open` or `open-close` element | Name of class
-**onInit** | function | `null` | Callback on plugin init | `() => { // code }`
-**onMenuOpen** | function | `null` | Callback on mobile menu open | `() => { // code }`
-**onMenuClose** | function | `null` | Callback on mobile menu close | `() => { // code }`
-**isMobile** | function | `null` | Callback when is mobile menu | `() => { // code }`
-**isDesktop** | function | `null` | Callback when is desktop menu | `() => { // code }`
+
+### Methods
+Name | Description | Available options
+-|-|-
+**onInit** | Callback on plugin init | `() => { // code }`
+**onMenuOpen** | Callback on mobile menu open | `() => { // code }`
+**onMenuClose** | Callback on mobile menu close | `() => { // code }`
+**isMobile** | Callback when is mobile menu | `() => { // code }`
+**isDesktop** | Callback when is desktop menu | `() => { // code }`
 
 ## License
 This project is licensed under the MIT License © 2018-present Jakub Biesiada
