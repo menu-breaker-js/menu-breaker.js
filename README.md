@@ -3,26 +3,36 @@
 [![NPM version](http://img.shields.io/npm/v/menu-breaker.svg?style=flat-square)](https://www.npmjs.com/package/menu-breaker)
 [![NPM downloads](http://img.shields.io/npm/dm/menu-breaker.svg?style=flat-square)](https://www.npmjs.com/package/menu-breaker)
 
-## Demo
+## About
+
+### Demo
 **[See plugin in action](https://jb1905.github.io/menu-breaker.js/)**
 
 ## How to Install
-At the beginning install the library in your project via npm or Yarn:
-```sh
+At the beginning install the library in your project via npm:
+```bash
 $ npm install menu-breaker
+```
+
+Or Yarn:
+```bash
 $ yarn add menu-breaker
 ```
 
 ## Getting Started
-**Connect using script tag in HTML:**
+**Connect libary with project using script tag in HTML:**
 ```html
-<script src="/directory/to/library/folder/menu-breaker.js"></script>
+<script src="/path/to/menu-breaker.js"></script>
 ```
 
-**Or CommonJS/ES6 import:**
+**ES6 import:**
 ```js
-const MenuBreaker = require('menu-breaker'); // CommonJS
-import MenuBreaker from 'menu-breaker'; // ES6
+import MenuBreaker from 'menu-breaker';
+```
+
+**Or CommonJS:**
+```js
+const MenuBreaker = require('menu-breaker');
 ```
 
 Next use library with:
