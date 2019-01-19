@@ -19,9 +19,9 @@ Or Yarn:
 $ yarn add menu-breaker
 ```
 
-**You can also connect script via one of CDNs:**
-bundle.run: `https://bundle.run/menu-breaker`
-jsDelivr: `https://cdn.jsdelivr.net/npm/menu-breaker/`
+**You can also connect script via one of CDNs:**<br>
+bundle.run: `https://bundle.run/menu-breaker`<br>
+jsDelivr: `https://cdn.jsdelivr.net/npm/menu-breaker/`<br>
 unpkg: `https://unpkg.com/menu-breaker/`
 
 ## Getting Started
