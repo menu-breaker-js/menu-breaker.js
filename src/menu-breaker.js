@@ -141,15 +141,10 @@ export default class MenuBreaker {
   }
 }
 
-let scope;
+if (window.jQuery) {
+  const $ = window.jQuery;
 
-if (typeof window !== 'undefined') scope = window;
-else if (typeof global !== 'undefined') scope = global;
-
-if (scope && scope.jQuery) {
-  const $ = scope.jQuery;
-
-  $.fn.menuBreaker = (element, { methods, settings }) => {
-    new MenuBreaker({ element, methods, settings });
+  $.fn.menuBreaker = function({ methods, settings }) {
+    new MenuBreaker({ element: this, methods, settings });
   };
 }

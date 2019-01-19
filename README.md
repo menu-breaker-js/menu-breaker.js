@@ -19,6 +19,11 @@ Or Yarn:
 $ yarn add menu-breaker
 ```
 
+**You can also connect script via one of CDNs:**
+bundle.run: `https://bundle.run/menu-breaker`
+jsDelivr: `https://cdn.jsdelivr.net/npm/menu-breaker/`
+unpkg: `https://unpkg.com/menu-breaker/`
+
 ## Getting Started
 **Connect libary with project using script tag in HTML:**
 ```html

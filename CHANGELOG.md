@@ -1,6 +1,9 @@
 # menu-breaker.js Changelog
 
-## 1.1.5 beta 1 (2018-12-10)
+## 2.0.0 beta 1 (Soon)
+#### Breaking Changes
+- splitted `options` prop into `settings` and `methods`
+
 #### New Feature
 - added `onInit` callback
 
@@ -8,9 +11,16 @@
 - renamed method `settings()` to `extendSettings()` to avoid conflict with variable `settings`
 
 #### Repository Changes
+- updated npm scripts
+- cleaned up Webpack config
+- removed unused dependencies
 - added Travis CI config
 - added Prettier config
 - added ESLint config
+
+#### Bug Fix
+- fixed `window is not defined`
+- fixed `global` error (CDN)
 
 ## 1.1.3 / 1.1.4 (2018-11-10)
 #### Bug Fix
