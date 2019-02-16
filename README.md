@@ -96,11 +96,11 @@ Name | Type | Default | Description | Available options
 ### Callbacks
 Name | Description | Available options
 -|-|-
-**onInit** | Callback on plugin init | `() => { // code }`
-**onMenuOpen** | Callback on mobile menu open | `() => { // code }`
-**onMenuClose** | Callback on mobile menu close | `() => { // code }`
-**isMobile** | Callback when is mobile menu | `() => { // code }`
-**isDesktop** | Callback when is desktop menu | `() => { // code }`
+**onInit** | Callback on plugin init | `() => { /* code */ }`
+**onMenuOpen** | Callback on mobile menu open | `() => { /* code */ }`
+**onMenuClose** | Callback on mobile menu close | `() => { /* code */ }`
+**isMobile** | Callback when is mobile menu | `() => { /* code */ }`
+**isDesktop** | Callback when is desktop menu | `() => { /* code */ }`
 
 ## License
 This project is licensed under the MIT License © 2018-present Jakub Biesiada

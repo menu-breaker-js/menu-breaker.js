@@ -2,7 +2,7 @@
 
 ## 2.0.0 beta 1 (Soon)
 #### Breaking Changes
-- splitted `options` prop into `settings` and `methods`
+- splitted `options` prop into `settings` and `callbacks`
 
 #### New Feature
 - added `onInit` callback
