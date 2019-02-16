@@ -1,12 +1,12 @@
 export default class MenuBreaker {
   constructor(data = {}) {
     this.element = data.element;
-    this.methods = data.methods || {};
+    this.callbacks = data.callbacks || {};
 
     this.settings = this.extendSettings(data.settings || {});
 
-    if (typeof this.methods.onInit === 'function') {
-      this.methods.onInit();
+    if (typeof this.callbacks.onInit === 'function') {
+      this.callbacks.onInit();
     }
 
     this.mobileMenu = document.querySelector('[data-mobile]');
@@ -65,8 +65,8 @@ export default class MenuBreaker {
     this.mobileMenu.classList.add(this.settings['open-class']);
     this.isOpen = true;
 
-    if (typeof this.methods.onMenuOpen === 'function') {
-      this.methods.onMenuOpen();
+    if (typeof this.callbacks.onMenuOpen === 'function') {
+      this.callbacks.onMenuOpen();
     }
   }
 
@@ -74,8 +74,8 @@ export default class MenuBreaker {
     this.mobileMenu.classList.remove(this.settings['open-class']);
     this.isOpen = false;
 
-    if (typeof this.methods.onMenuClose === 'function') {
-      this.methods.onMenuClose();
+    if (typeof this.callbacks.onMenuClose === 'function') {
+      this.callbacks.onMenuClose();
     }
   }
 
@@ -112,14 +112,14 @@ export default class MenuBreaker {
     if (this.element.offsetHeight > this.settings['navbar-height']) {
       this.menuButton(false);
 
-      if (typeof this.methods.isMobile === 'function') {
-        this.methods.isMobile();
+      if (typeof this.callbacks.isMobile === 'function') {
+        this.callbacks.isMobile();
       }
     } else {
       this.desktop();
 
-      if (typeof this.methods.isDesktop === 'function') {
-        this.methods.isDesktop();
+      if (typeof this.callbacks.isDesktop === 'function') {
+        this.callbacks.isDesktop();
       }
     }
   }
@@ -144,7 +144,7 @@ export default class MenuBreaker {
 if (window.jQuery) {
   const $ = window.jQuery;
 
-  $.fn.menuBreaker = function({ methods, settings }) {
-    new MenuBreaker({ element: this, methods, settings });
+  $.fn.menuBreaker = function({ settings, callbacks }) {
+    new MenuBreaker({ element: this, settings, callbacks });
   };
 }

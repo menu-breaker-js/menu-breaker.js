@@ -50,8 +50,8 @@ const menuBreaker = new MenuBreaker({
   settings: {
     // options...
   },
-  methods: {
-    // methods...
+  callbacks: {
+    // callbacks...
   }
 });
 ```
@@ -80,8 +80,8 @@ $('.desktop').menuBreaker({
   settings: {
     // options...
   },
-  methods: {
-    // methods...
+  callbacks: {
+    // callbacks...
   }
 });
 ```
@@ -93,7 +93,7 @@ Name | Type | Default | Description | Available options
 **navbar-height** | number | `70` | Desktop menu height | e.g: `50`, `86`, etc.
 **open-class** | string | `open` | Name of class added to mobile menu, after click `open` or `open-close` element | Name of class
 
-### Methods
+### Callbacks
 Name | Description | Available options
 -|-|-
 **onInit** | Callback on plugin init | `() => { // code }`
