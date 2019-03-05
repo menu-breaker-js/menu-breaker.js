@@ -9,7 +9,7 @@
 **[See plugin in action](https://jb1905.github.io/menu-breaker.js/)**
 
 ## How to Install
-At the beginning install the library in your project via npm:
+First, install the library in your project by npm:
 ```bash
 $ npm install menu-breaker
 ```
@@ -91,7 +91,7 @@ $('.desktop').menuBreaker({
 Name | Type | Default | Description | Available options
 -|-|-|-|-
 **navbar-height** | number | `70` | Desktop menu height | e.g: `50`, `86`, etc.
-**open-class** | string | `open` | Name of class added to mobile menu, after click `open` or `open-close` element | Name of class
+**open-class** | string | `open` | Name of the class added to the mobile menu after clicking `open` or `open-close` element | Name of class
 
 ### Callbacks
 Name | Description | Available options
