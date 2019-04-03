@@ -45,6 +45,7 @@ Next use library with:
 **&bull; Vanilla JavaScript e.g:**
 ```js
 const elem = document.querySelector('.desktop');
+
 const menuBreaker = new MenuBreaker({
   element: elem,
   settings: {
