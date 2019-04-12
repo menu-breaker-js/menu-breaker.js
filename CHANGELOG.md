@@ -1,6 +1,6 @@
 # menu-breaker.js Changelog
 
-## 1.1.5 (2019-04-12)
+## 1.1.5 / 1.1.6 (2019-04-12)
 #### Repository Changes
 - removed unused devDependencies
 
