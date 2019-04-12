@@ -1,5 +1,15 @@
 # menu-breaker.js Changelog
 
+## 1.1.5 (2019-04-12)
+#### Repository Changes
+- removed unused devDependencies
+
+#### Documentation
+- updated README.md
+
+#### Bug Fix
+- fixed CDN undefined bug
+
 ## 1.1.5 beta 1 (2018-12-10)
 #### New Feature
 - added `onInit` callback
