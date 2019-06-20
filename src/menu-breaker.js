@@ -144,7 +144,10 @@ export default class MenuBreaker {
 if (window.jQuery) {
   const $ = window.jQuery;
 
-  $.fn.menuBreaker = function({ settings, callbacks }) {
-    new MenuBreaker({ element: this, settings, callbacks });
+  $.fn.menuBreaker = function(data = {}) {
+    return new MenuBreaker({
+      element: this,
+      ...data
+    });
   };
 }
