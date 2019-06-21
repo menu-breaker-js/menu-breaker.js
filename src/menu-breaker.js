@@ -91,13 +91,18 @@ export default class MenuBreaker {
 
       if (this.openCloseButton) {
         this.openCloseButton.addEventListener('click', () => {
-          if (!this.isOpen) this.open();
-          else this.close();
+          if (!this.isOpen) {
+            this.open();
+          } else {
+            this.close();
+          }
         });
       }
     }
 
-    if (this.isOpen) this.mobileMenu.classList.add(this.settings['open-class']);
+    if (this.isOpen) {
+      this.mobileMenu.classList.add(this.settings['open-class']);
+    }
   }
 
   desktop() {
@@ -133,8 +138,11 @@ export default class MenuBreaker {
     const newSettings = {};
 
     for (const property in defaultSettings) {
-      if (property in settings) newSettings[property] = settings[property];
-      else newSettings[property] = defaultSettings[property];
+      if (property in settings) {
+        newSettings[property] = settings[property];
+      } else {
+        newSettings[property] = defaultSettings[property];
+      }
     }
 
     return newSettings;
