@@ -10,12 +10,12 @@
 
 ## How to Install
 First, install the library in your project by npm:
-```bash
+```sh
 $ npm install menu-breaker
 ```
 
 Or Yarn:
-```bash
+```sh
 $ yarn add menu-breaker
 ```
 
