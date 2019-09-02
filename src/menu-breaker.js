@@ -9,10 +9,10 @@ export default class MenuBreaker {
       this.callbacks.onInit();
     }
 
-    this.mobileMenu = document.querySelector('[data-mobile]');
-    this.openButton = document.querySelector('[data-open]');
-    this.closeButton = document.querySelector('[data-close]');
-    this.openCloseButton = document.querySelector('[data-open-close]');
+    this.mobileMenu = document.querySelector('[data-menu-breaker-mobile]');
+    this.openButton = document.querySelector('[data-menu-breaker-open]');
+    this.closeButton = document.querySelector('[data-menu-breaker-close]');
+    this.toggleButton = document.querySelector('[data-menu-breaker-toggle]');
 
     this.isOpen = false;
 
@@ -89,8 +89,8 @@ export default class MenuBreaker {
         this.closeButton.addEventListener('click', () => this.close());
       }
 
-      if (this.openCloseButton) {
-        this.openCloseButton.addEventListener('click', () => {
+      if (this.toggleButton) {
+        this.toggleButton.addEventListener('click', () => {
           if (!this.isOpen) {
             this.open();
           } else {
