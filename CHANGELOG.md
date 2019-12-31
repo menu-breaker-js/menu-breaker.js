@@ -2,6 +2,13 @@
 
 ### [CHANGELOG.md for v1 here](https://github.com/JB1905/menu-breaker.js/blob/v1/CHANGELOG.md)
 
+## 2.1.0 (2020-01-02)
+#### Breaking Changes
+- renamed `data-mobile` to `data-menu-breaker-mobile`
+- renamed `data-open` to `data-menu-breaker-open`
+- renamed `data-close` to `data-menu-breaker-close`
+- renamed `data-open-close` to `data-menu-breaker-toggle`
+
 ## 2.0.2 (2019-06-21)
 #### Change
 - added full access to library methods for jQuery
