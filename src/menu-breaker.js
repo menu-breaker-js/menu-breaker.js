@@ -9,10 +9,10 @@ export default class MenuBreaker {
       this.callbacks.onInit();
     }
 
-    this.mobileMenu = document.querySelector('[data-mobile]');
-    this.openButton = document.querySelector('[data-open]');
-    this.closeButton = document.querySelector('[data-close]');
-    this.openCloseButton = document.querySelector('[data-open-close]');
+    this.mobileMenu = document.querySelector('[data-menu-breaker-mobile]');
+    this.openButton = document.querySelector('[data-menu-breaker-open]');
+    this.closeButton = document.querySelector('[data-menu-breaker-close]');
+    this.toggleButton = document.querySelector('[data-menu-breaker-toggle]');
 
     this.isOpen = false;
 
@@ -30,7 +30,6 @@ export default class MenuBreaker {
   subLevels() {
     const items = this.element.querySelectorAll(':not(li) > ul > li > ul');
 
-    // side of first level submenu
     for (const item of items) {
       const parentWidth = item.parentNode.clientWidth;
       const subMenuWidth = item.clientWidth;
@@ -41,7 +40,6 @@ export default class MenuBreaker {
         item.style.marginLeft = 0;
       }
 
-      // side of next level submenu
       const subItems = item.querySelectorAll('li > ul');
 
       for (const subItem of subItems) {
@@ -89,8 +87,8 @@ export default class MenuBreaker {
         this.closeButton.addEventListener('click', () => this.close());
       }
 
-      if (this.openCloseButton) {
-        this.openCloseButton.addEventListener('click', () => {
+      if (this.toggleButton) {
+        this.toggleButton.addEventListener('click', () => {
           if (!this.isOpen) {
             this.open();
           } else {
@@ -131,8 +129,8 @@ export default class MenuBreaker {
 
   extendSettings(settings) {
     const defaultSettings = {
-      'navbar-height': 70, // max height of navbar
-      'open-class': 'open' // name of class added to mobile menu, after click data-open or data-open-close element
+      'navbar-height': 70,
+      'open-class': 'open'
     };
 
     const newSettings = {};
