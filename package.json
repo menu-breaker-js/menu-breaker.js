@@ -1,20 +1,19 @@
 {
   "name": "menu-breaker",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Break HTML menu on resize",
   "author": "Jakub Biesiada",
   "license": "MIT",
-  "main": "lib/menu-breaker.min.js",
+  "main": "lib/menu-breaker.cjs.js",
+  "module": "lib/menu-breaker.esm.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build:dev && npm run build && npm run test",
-    "build": "webpack --env build",
-    "build:dev": "webpack --env dev",
+    "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build",
+    "build": "rollup -c",
     "test": "jest --coverage",
     "watch": "npm run build -- --watch",
-    "watch:dev": "npm run build:dev -- --watch",
-    "watch:test": "npm run test -- --watch",
-    "lint": "eslint src --fix",
-    "prettier": "prettier --write 'src/**/*.js'",
+    "lint": "eslint 'src/**/*.ts' --fix",
+    "prettier": "prettier --write 'src/**/*.ts'",
     "deploy": "gh-pages -d demo/build"
   },
   "repository": {
@@ -34,11 +33,10 @@
   },
   "homepage": "https://github.com/JB1905/menu-breaker.js#readme",
   "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@types/jest": "^24.9.1",
+    "@types/jquery": "^3.3.31",
+    "@typescript-eslint/parser": "^2.17.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
@@ -48,8 +46,15 @@
     "jquery": "^3.4.1",
     "lint-staged": "^10.0.2",
     "prettier": "^1.19.1",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "ts-jest": "^25.0.0",
+    "typescript": "^3.7.5"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    }
   },
   "husky": {
     "hooks": {

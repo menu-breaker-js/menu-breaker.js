@@ -1,5 +1,6 @@
 node_modules
-coverage
 .DS_Store
 demo
 yarn-error.log
+.rpt2_cache
+coverage
