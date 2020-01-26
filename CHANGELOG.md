@@ -2,9 +2,17 @@
 
 ### [CHANGELOG.md for v1 here](https://github.com/JB1905/menu-breaker.js/blob/v1/CHANGELOG.md)
 
-## 2.2.0 (Soon)
+## 2.2.1 (2020-01-26)
+#### Bug Fix
+- fixed error `export is not defined`
+
+## 2.2.0 (2020-01-26)
 #### Internal
 - rewritten with TypeScript
+
+#### Repository Changes
+- replaced `Webpack` with `Rollup`
+- added module output
 
 #### New Feature
 - added typeDefs

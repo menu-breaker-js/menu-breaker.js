@@ -1,6 +1,6 @@
 {
   "name": "menu-breaker",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Break HTML menu on resize",
   "author": "Jakub Biesiada",
   "license": "MIT",
