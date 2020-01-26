@@ -64,7 +64,7 @@ export default class MenuBreaker {
       ':not(li) > ul > li > ul'
     ) as NodeListOf<HTMLElement>;
 
-    for (const item of items) {
+    for (const item of items as any) {
       const parentWidth = (item.parentNode as HTMLElement).clientWidth;
       const subMenuWidth = item.clientWidth;
 
