@@ -1,5 +1,26 @@
+import { defaultSettings } from './defaults';
+
+import { Callbacks, Settings, Options } from './types';
+
+declare global {
+  interface Window {
+    jQuery: any;
+  }
+}
+
 export default class MenuBreaker {
-  constructor(data = {}) {
+  private element: HTMLElement;
+  private callbacks: Callbacks;
+  private settings: Settings;
+
+  private mobileMenu: HTMLElement;
+  private openButton: HTMLElement;
+  private closeButton: HTMLElement;
+  private toggleButton: HTMLElement;
+
+  private isOpen: boolean;
+
+  constructor(data = {} as Options) {
     this.element = data.element;
     this.callbacks = data.callbacks || {};
 
@@ -9,10 +30,21 @@ export default class MenuBreaker {
       this.callbacks.onInit();
     }
 
-    this.mobileMenu = document.querySelector('[data-menu-breaker-mobile]');
-    this.openButton = document.querySelector('[data-menu-breaker-open]');
-    this.closeButton = document.querySelector('[data-menu-breaker-close]');
-    this.toggleButton = document.querySelector('[data-menu-breaker-toggle]');
+    this.mobileMenu = document.querySelector(
+      '[data-menu-breaker-mobile]'
+    ) as HTMLElement;
+
+    this.openButton = document.querySelector(
+      '[data-menu-breaker-open]'
+    ) as HTMLElement;
+
+    this.closeButton = document.querySelector(
+      '[data-menu-breaker-close]'
+    ) as HTMLElement;
+
+    this.toggleButton = document.querySelector(
+      '[data-menu-breaker-toggle]'
+    ) as HTMLElement;
 
     this.isOpen = false;
 
@@ -28,25 +60,31 @@ export default class MenuBreaker {
   onWindowResize = () => this.changeMenu();
 
   subLevels() {
-    const items = this.element.querySelectorAll(':not(li) > ul > li > ul');
+    const items = this.element.querySelectorAll(
+      ':not(li) > ul > li > ul'
+    ) as NodeListOf<HTMLElement>;
 
-    for (const item of items) {
-      const parentWidth = item.parentNode.clientWidth;
+    for (const item of items as any) {
+      const parentWidth = (item.parentNode as HTMLElement).clientWidth;
       const subMenuWidth = item.clientWidth;
 
-      if (item.parentNode.offsetLeft + subMenuWidth > window.innerWidth) {
+      if (
+        (item.parentNode as HTMLElement).offsetLeft + subMenuWidth >
+        window.innerWidth
+      ) {
         item.style.marginLeft = `${-subMenuWidth + parentWidth}px`;
       } else {
-        item.style.marginLeft = 0;
+        item.style.marginLeft = '0';
       }
 
-      const subItems = item.querySelectorAll('li > ul');
+      const subItems = item.querySelectorAll('li > ul') as Array<HTMLElement>;
 
       for (const subItem of subItems) {
         const subSubMenuWidth = subItem.offsetWidth;
 
         if (
-          subItem.parentNode.parentNode.parentNode.offsetLeft +
+          (subItem.parentNode!.parentNode!.parentNode as HTMLElement)
+            .offsetLeft +
             subSubMenuWidth +
             subMenuWidth >
           window.innerWidth
@@ -60,7 +98,7 @@ export default class MenuBreaker {
   }
 
   open() {
-    this.mobileMenu.classList.add(this.settings['open-class']);
+    this.mobileMenu.classList.add(this.settings['open-class']!);
     this.isOpen = true;
 
     if (typeof this.callbacks.onMenuOpen === 'function') {
@@ -69,7 +107,7 @@ export default class MenuBreaker {
   }
 
   close() {
-    this.mobileMenu.classList.remove(this.settings['open-class']);
+    this.mobileMenu.classList.remove(this.settings['open-class']!);
     this.isOpen = false;
 
     if (typeof this.callbacks.onMenuClose === 'function') {
@@ -77,7 +115,7 @@ export default class MenuBreaker {
     }
   }
 
-  menuButton(init) {
+  menuButton(init: boolean) {
     if (init) {
       if (this.openButton) {
         this.openButton.addEventListener('click', () => this.open());
@@ -99,20 +137,20 @@ export default class MenuBreaker {
     }
 
     if (this.isOpen) {
-      this.mobileMenu.classList.add(this.settings['open-class']);
+      this.mobileMenu.classList.add(this.settings['open-class']!);
     }
   }
 
   desktop() {
-    if (this.mobileMenu.classList.contains(this.settings['open-class'])) {
-      this.mobileMenu.classList.remove(this.settings['open-class']);
+    if (this.mobileMenu.classList.contains(this.settings['open-class']!)) {
+      this.mobileMenu.classList.remove(this.settings['open-class']!);
     }
 
     this.subLevels();
   }
 
   changeMenu() {
-    if (this.element.offsetHeight > this.settings['navbar-height']) {
+    if (this.element.offsetHeight > this.settings['navbar-height']!) {
       this.menuButton(false);
 
       if (typeof this.callbacks.isMobile === 'function') {
@@ -127,15 +165,12 @@ export default class MenuBreaker {
     }
   }
 
-  extendSettings(settings) {
-    const defaultSettings = {
-      'navbar-height': 70,
-      'open-class': 'open'
-    };
+  extendSettings(settings: Settings): Settings {
+    const newSettings = {} as any;
 
-    const newSettings = {};
+    let property: keyof Settings;
 
-    for (const property in defaultSettings) {
+    for (property in defaultSettings) {
       if (property in settings) {
         newSettings[property] = settings[property];
       } else {
@@ -150,7 +185,7 @@ export default class MenuBreaker {
 if (window.jQuery) {
   const $ = window.jQuery;
 
-  $.fn.menuBreaker = function(data = {}) {
+  $.fn.menuBreaker = function(data: Options = {} as Options) {
     return new MenuBreaker({
       element: this,
       ...data

@@ -2,6 +2,13 @@
 
 ### [CHANGELOG.md for v1 here](https://github.com/JB1905/menu-breaker.js/blob/v1/CHANGELOG.md)
 
+## 2.2.0 (Soon)
+#### Internal
+- rewritten with TypeScript
+
+#### New Feature
+- added typeDefs
+
 ## 2.1.0 (2020-01-02)
 #### Breaking Changes
 - renamed `data-mobile` to `data-menu-breaker-mobile`
