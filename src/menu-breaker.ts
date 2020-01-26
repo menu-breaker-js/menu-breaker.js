@@ -1,21 +1,6 @@
-interface Callbacks {
-  onInit?: () => void;
-  onMenuOpen?: () => void;
-  onMenuClose?: () => void;
-  isMobile?: () => void;
-  isDesktop?: () => void;
-}
+import { defaultSettings } from './defaults';
 
-interface Settings {
-  'navbar-height'?: number;
-  'open-class'?: string;
-}
-
-interface Options {
-  element: HTMLElement;
-  callbacks: Callbacks;
-  settings: Settings;
-}
+import { Callbacks, Settings, Options } from './types';
 
 declare global {
   interface Window {
@@ -181,11 +166,6 @@ export default class MenuBreaker {
   }
 
   extendSettings(settings: Settings): Settings {
-    const defaultSettings = {
-      'navbar-height': 70,
-      'open-class': 'open'
-    };
-
     const newSettings = {} as any;
 
     let property: keyof Settings;
@@ -212,7 +192,3 @@ if (window.jQuery) {
     });
   };
 }
-
-// export class PriorityMenu {}
-
-// export class ScrollMenu {}
