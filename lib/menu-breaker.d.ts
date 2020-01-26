@@ -1,19 +1,4 @@
-interface Callbacks {
-    onInit?: () => void;
-    onMenuOpen?: () => void;
-    onMenuClose?: () => void;
-    isMobile?: () => void;
-    isDesktop?: () => void;
-}
-interface Settings {
-    'navbar-height'?: number;
-    'open-class'?: string;
-}
-interface Options {
-    element: HTMLElement;
-    callbacks: Callbacks;
-    settings: Settings;
-}
+import { Settings, Options } from './types';
 declare global {
     interface Window {
         jQuery: any;
@@ -39,4 +24,3 @@ export default class MenuBreaker {
     changeMenu(): void;
     extendSettings(settings: Settings): Settings;
 }
-export {};
