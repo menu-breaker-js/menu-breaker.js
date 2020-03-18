@@ -1,6 +1,6 @@
 # menu-breaker.js Changelog
 
-### [CHANGELOG.md for v1 here](https://github.com/JB1905/menu-breaker.js/blob/v1/CHANGELOG.md)
+### [CHANGELOG.md for v1 here](https://github.com/menu-breaker-js/menu-breaker.js/blob/v1/CHANGELOG.md)
 
 ## 2.2.1 (2020-01-26)
 #### Bug Fix

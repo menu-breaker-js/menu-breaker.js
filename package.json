@@ -13,12 +13,11 @@
     "test": "jest --coverage",
     "watch": "npm run build -- --watch",
     "lint": "eslint 'src/**/*.ts' --fix",
-    "prettier": "prettier --write 'src/**/*.ts'",
-    "deploy": "gh-pages -d demo/build"
+    "prettier": "prettier --write 'src/**/*.ts'"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JB1905/menu-breaker.js.git"
+    "url": "https://github.com/menu-breaker-js/menu-breaker.js.git"
   },
   "keywords": [
     "JavaScript",
@@ -29,27 +28,26 @@
     "mobile"
   ],
   "bugs": {
-    "url": "https://github.com/JB1905/menu-breaker.js/issues"
+    "url": "https://github.com/menu-breaker-js/menu-breaker.js/issues"
   },
-  "homepage": "https://github.com/JB1905/menu-breaker.js#readme",
+  "homepage": "https://github.com/menu-breaker-js/menu-breaker.js#readme",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "@types/jest": "^24.9.1",
-    "@types/jquery": "^3.3.31",
-    "@typescript-eslint/parser": "^2.17.0",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@types/jest": "^25.1.4",
+    "@types/jquery": "^3.3.33",
+    "@typescript-eslint/parser": "^2.24.0",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "gh-pages": "^2.2.0",
-    "husky": "^4.2.1",
+    "husky": "^4.2.3",
     "jest": "^25.1.0",
     "jquery": "^3.4.1",
-    "lint-staged": "^10.0.2",
+    "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
-    "rollup-plugin-terser": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.25.3",
-    "ts-jest": "^25.0.0",
-    "typescript": "^3.7.5"
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript2": "^0.26.0",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3"
   },
   "jest": {
     "transform": {

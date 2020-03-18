@@ -1,4 +1,4 @@
-# [menu-breaker.js](https://github.com/jb1905/menu-breaker.js)
+# [menu-breaker.js](https://github.com/menu-breaker-js/menu-breaker.js)
 
 [![NPM version](http://img.shields.io/npm/v/menu-breaker.svg?style=flat-square)](https://www.npmjs.com/package/menu-breaker)
 [![NPM downloads](http://img.shields.io/npm/dm/menu-breaker.svg?style=flat-square)](https://www.npmjs.com/package/menu-breaker)
@@ -6,7 +6,7 @@
 ## About
 
 ### Demo
-**[See plugin in action](https://jb1905.github.io/menu-breaker.js/)**
+**[See plugin in action](https://menu-breaker-js.github.io/menu-breaker.js/)**
 
 ## How to Install
 First, install the library in your project by npm:
