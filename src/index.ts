@@ -185,10 +185,10 @@ export default class MenuBreaker {
 if (window.jQuery) {
   const $ = window.jQuery;
 
-  $.fn.menuBreaker = function(data: Options = {} as Options) {
+  $.fn.menuBreaker = function (data: Options = {} as Options) {
     return new MenuBreaker({
       element: this,
-      ...data
+      ...data,
     });
   };
 }
