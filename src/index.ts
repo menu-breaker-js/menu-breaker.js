@@ -1,6 +1,6 @@
 import { defaultSettings } from './defaults';
 
-import { Callbacks, Settings, Options } from './types';
+import type { Callbacks, Settings, Options } from './types';
 
 declare global {
   interface Window {
@@ -66,6 +66,7 @@ export default class MenuBreaker {
 
     for (const item of items as any) {
       const parentWidth = (item.parentNode as HTMLElement).clientWidth;
+
       const subMenuWidth = item.clientWidth;
 
       if (
@@ -83,8 +84,7 @@ export default class MenuBreaker {
         const subSubMenuWidth = subItem.offsetWidth;
 
         if (
-          (subItem.parentNode!.parentNode!.parentNode as HTMLElement)
-            .offsetLeft +
+          (subItem.parentNode.parentNode.parentNode as HTMLElement).offsetLeft +
             subSubMenuWidth +
             subMenuWidth >
           window.innerWidth
@@ -98,7 +98,8 @@ export default class MenuBreaker {
   }
 
   open() {
-    this.mobileMenu.classList.add(this.settings['open-class']!);
+    this.mobileMenu.classList.add(this.settings['open-class']);
+
     this.isOpen = true;
 
     if (typeof this.callbacks.onMenuOpen === 'function') {
@@ -107,7 +108,8 @@ export default class MenuBreaker {
   }
 
   close() {
-    this.mobileMenu.classList.remove(this.settings['open-class']!);
+    this.mobileMenu.classList.remove(this.settings['open-class']);
+
     this.isOpen = false;
 
     if (typeof this.callbacks.onMenuClose === 'function') {
@@ -115,8 +117,8 @@ export default class MenuBreaker {
     }
   }
 
-  menuButton(init: boolean) {
-    if (init) {
+  menuButton(isInit: boolean) {
+    if (isInit) {
       if (this.openButton) {
         this.openButton.addEventListener('click', () => this.open());
       }
@@ -137,20 +139,20 @@ export default class MenuBreaker {
     }
 
     if (this.isOpen) {
-      this.mobileMenu.classList.add(this.settings['open-class']!);
+      this.mobileMenu.classList.add(this.settings['open-class']);
     }
   }
 
   desktop() {
-    if (this.mobileMenu.classList.contains(this.settings['open-class']!)) {
-      this.mobileMenu.classList.remove(this.settings['open-class']!);
+    if (this.mobileMenu.classList.contains(this.settings['open-class'])) {
+      this.mobileMenu.classList.remove(this.settings['open-class']);
     }
 
     this.subLevels();
   }
 
   changeMenu() {
-    if (this.element.offsetHeight > this.settings['navbar-height']!) {
+    if (this.element.offsetHeight > this.settings['navbar-height']) {
       this.menuButton(false);
 
       if (typeof this.callbacks.isMobile === 'function') {
@@ -166,7 +168,7 @@ export default class MenuBreaker {
   }
 
   extendSettings(settings: Settings): Settings {
-    const newSettings = {} as any;
+    const newSettings = {} as Record<keyof Settings, any>;
 
     let property: keyof Settings;
 
@@ -185,10 +187,7 @@ export default class MenuBreaker {
 if (window.jQuery) {
   const $ = window.jQuery;
 
-  $.fn.menuBreaker = function (data: Options = {} as Options) {
-    return new MenuBreaker({
-      element: this,
-      ...data,
-    });
+  $.fn.menuBreaker = function (data = {} as Options) {
+    return new MenuBreaker({ ...data });
   };
 }

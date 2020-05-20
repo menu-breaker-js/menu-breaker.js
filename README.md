@@ -61,7 +61,7 @@ const menuBreaker = new MenuBreaker({
 
 *Connect jQuery in HTML*
 ```html
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 ```
 
 *or include via command line and CommonJS*
