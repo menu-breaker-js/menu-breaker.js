@@ -1,6 +1,6 @@
-import { defaultSettings } from './defaults';
-
 import type { Callbacks, Settings, Options } from './types';
+
+import { defaultSettings } from './defaults';
 
 declare global {
   interface Window {
