@@ -11,5 +11,5 @@
     "moduleResolution": "node",
     "esModuleInterop": true
   },
-  "exclude": ["lib", "test"]
+  "include": ["src"]
 }
