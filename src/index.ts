@@ -97,7 +97,7 @@ export default class MenuBreaker {
     }
   }
 
-  public open() { // TODO
+  private open() {
     this.mobileMenu.classList.add(this.settings['open-class']);
 
     this.isOpen = true;
@@ -107,7 +107,7 @@ export default class MenuBreaker {
     }
   }
 
-  public close() { // TODO
+  private close() {
     this.mobileMenu.classList.remove(this.settings['open-class']);
 
     this.isOpen = false;
