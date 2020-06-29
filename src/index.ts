@@ -53,13 +53,13 @@ export default class MenuBreaker {
     this.addEventListeners();
   }
 
-  addEventListeners() {
+  private addEventListeners() {
     window.addEventListener('resize', this.onWindowResize);
   }
 
-  onWindowResize = () => this.changeMenu();
+  private onWindowResize = () => this.changeMenu();
 
-  subLevels() {
+  private subLevels() {
     const items = this.element.querySelectorAll(
       ':not(li) > ul > li > ul'
     ) as NodeListOf<HTMLElement>;
@@ -97,7 +97,7 @@ export default class MenuBreaker {
     }
   }
 
-  open() {
+  public open() { // TODO
     this.mobileMenu.classList.add(this.settings['open-class']);
 
     this.isOpen = true;
@@ -107,7 +107,7 @@ export default class MenuBreaker {
     }
   }
 
-  close() {
+  public close() { // TODO
     this.mobileMenu.classList.remove(this.settings['open-class']);
 
     this.isOpen = false;
@@ -117,7 +117,7 @@ export default class MenuBreaker {
     }
   }
 
-  menuButton(isInit: boolean) {
+  private menuButton(isInit: boolean) {
     if (isInit) {
       if (this.openButton) {
         this.openButton.addEventListener('click', () => this.open());
@@ -143,7 +143,7 @@ export default class MenuBreaker {
     }
   }
 
-  desktop() {
+  private desktop() {
     if (this.mobileMenu.classList.contains(this.settings['open-class'])) {
       this.mobileMenu.classList.remove(this.settings['open-class']);
     }
@@ -151,7 +151,7 @@ export default class MenuBreaker {
     this.subLevels();
   }
 
-  changeMenu() {
+  private changeMenu() {
     if (this.element.offsetHeight > this.settings['navbar-height']) {
       this.menuButton(false);
 
@@ -167,7 +167,7 @@ export default class MenuBreaker {
     }
   }
 
-  extendSettings(settings: Settings): Settings {
+  private extendSettings(settings: Settings): Settings {
     const newSettings = {} as Record<keyof Settings, any>;
 
     let property: keyof Settings;
